@@ -31,7 +31,7 @@
                                         <p style="color:red"><?php echo($_GET['error']); ?></p>
                                       <?php } ?>
                                     <p style="
-                                        margin-top: 20px;"><a href="">Se connecter en tant qu'utilisateur?</a></p>
+                                        margin-top: 20px;"><a href="login-user.php">Se connecter en tant qu'utilisateur?</a></p>
                                     <div class="form-group">
                                         <button style="
                                         margin-top: 20px;" type="submit" class="btn btn-primary">Se connecter</button>
