@@ -1,3 +1,9 @@
+<?php
+  include_once '../inc/fonction.php';
+  $listeThe = listThe();
+  $listeParcelle = listParcelle();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +55,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Numéro</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="number" name="num" placeholder="Numéro" class="form-control">
+                    <input type="number" name="numero" placeholder="Numéro" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
@@ -59,9 +65,15 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Variété</label>
+                    <label class="col-sm-2 control-label col-lg-4">Variété de thé</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="text" name="variete" placeholder="Variété" class="form-control">
+                    <select name="idThe" id="idThe" class="form-control">
+                      <?php
+                        foreach ($listeThe as $item) {
+                            echo "<option value='".$item['idThe']."'>".$item['nom']."</option>";
+                        }
+                        ?>
+                    </select>
                     </div>
                   </div>
                   <p style="color:red">Veuillez réessayer</p>                  
@@ -69,6 +81,7 @@
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
                       <a href="#" class="btn btn-default" role="button">Modifier</a>
+
                   </div>
                 </form>
               </div>
@@ -79,6 +92,20 @@
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail parcelles">
                 <img src="../assets/img/fondLogin.jpg" alt="...">
+                <?php
+                        foreach ($listeParcelle as $item) {
+                          ?>
+                            <div class="caption">
+                              <center>
+                                  <h1>#<?php echo $item['numero'];?></h1>
+                                  <p><?php echo $item['surface'];?></p>
+                                  <p><?php echo $item['numero'];?></p>
+                                  <p><a href="#" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
+                              </center>      
+                          </div>
+                          <?php
+                        }
+                        ?>
                 <div class="caption">
                     <center>
                         <h1>#1</h1>

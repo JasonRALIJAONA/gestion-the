@@ -43,3 +43,13 @@ CREATE TABLE salaire (
 ) ENGINE=InnoDB;
 alter table salaire add FOREIGN KEY(idCueilleur) references cueilleur(idCueilleur);
 
+
+CREATE TABLE cueillette (
+    idCueillette SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    dateCueillette DATE,
+    idCueilleur SMALLINT,
+    numeroParcelle SMALLINT,
+    poids decimal(10,2)
+) ENGINE=InnoDB;
+alter table cueillette add FOREIGN KEY(idCueilleur) references cueilleur(idCueilleur);
+alter table cueillette add FOREIGN KEY(numeroParcelle) references parcelle(numero);
