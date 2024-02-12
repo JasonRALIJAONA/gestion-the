@@ -47,7 +47,7 @@
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Insertion cueilleurs</h2>
               <form class="form-horizontal" action="" method="post" style="margin-top: 50px; " id="formulaire">
-                  <input type="hidden" id="idThe">
+                  <input type="hidden" id="idThe" name="idThe">
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Nom</label>
                     <div class="col-sm-10 col-lg-6">
@@ -74,8 +74,9 @@
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
                     </div>
-                    <a href="#" class="btn btn-default" role="button" style="display: none;" onclick="modifier()">Modifier</a>
-                </form>
+                  </form>
+                  <!-- <a href="#" class="btn btn-default" role="button" style="display: none;" onclick="modifier()" id="modifieur">Modifier</a> -->
+                  <button class="btn btn-default" style="display: none;" onclick="modifier()" id="modifieur">Modifier</button>
               </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>

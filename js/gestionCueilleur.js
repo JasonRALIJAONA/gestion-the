@@ -12,16 +12,18 @@ function connexion() {
                  try {  xhr = new XMLHttpRequest();  }
                  catch (e3) {  xhr = false;   }
                }
-          }
-      
-          // Liez l'objet FormData et l'élément form
-          var formData = new FormData(form);
+              }
+              
+              // Liez l'objet FormData et l'élément form
+              var form = document.getElementById("formulaire");
+              var formData = new FormData(form);
+              // Accédez à l'élément form …
       
           xhr.onreadystatechange  = function() 
           { 
              if(xhr.readyState  == 4){
               if(xhr.status  == 200) {
-                  //var retour = JSON.parse(xhr.responseText);
+                  // var retour = JSON.parse(xhr.responseText);
                   displayThe();
               } else {
                   document.dyn="Error code " + xhr.status;
@@ -37,13 +39,13 @@ function connexion() {
           xhr.send(formData);
         }
       
-        // Accédez à l'élément form …
+        // console.log(form);
         var form = document.getElementById("formulaire");
-        //console.log(form);
+    
       
         // … et prenez en charge l'événement submit.
         form.addEventListener("submit", function (event) {
-          event.preventDefault(); // évite de faire le submit par défaut
+        event.preventDefault(); // évite de faire le submit par défaut
       
           sendData();
         });
@@ -257,9 +259,8 @@ function removeRow(button) {
       { 
          if(xhr.readyState  == 4){
           if(xhr.status  == 200) {
-              var retour = JSON.parse(xhr.responseText);
-              //console.log(retour);
-              displayThe();
+            var retour = JSON.parse(xhr.responseText);
+            displayThe();
           } else {
               document.dyn="Error code " + xhr.status;
           }
@@ -284,6 +285,11 @@ function removeRow(button) {
     var nomThe=cellules[1].innerText;
     var genreThe=cellules[2].innerText;
     var dateNaissance=cellules[3].innerText;
+
+    console.log(idThe);
+    console.log(nomThe);
+    console.log(genreThe);
+    console.log(dateNaissance);
 
     var hiddenIdThe=document.getElementById("idThe");
     hiddenIdThe.value=idThe;
