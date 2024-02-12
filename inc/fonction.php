@@ -35,12 +35,12 @@
     function insertThe($nom, $occupation, $rendement)
     {
         $conn = Connect();
-
-        $sql = "insert into the(idThe, nom, occupation, rendement values(null, '$nom', $occupation, $rendement)";
+    
+        $sql = "INSERT INTO the (nom, occupation, rendement) VALUES ('$nom', $occupation, $rendement)";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
-
+    
     function getThe($idThe)
     {
         $conn = Connect();
