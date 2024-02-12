@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>Parcelles</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <script src="../js/gestionThe.js"></script>
+    <link rel="stylesheet" href="../assets/css/accueil.css">
 
 </head>
 <body style="background-color:#e7e7e7;">
-  <script>
-    connexion();
-  </script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,79 +28,67 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="row">
-    <div class="col-lg-3" style="height: 950px;background-color:white;margin-top: -20px;">
+    <div class="col-lg-3" style="height: 1000px;background-color:white;margin-top: -20px;">
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
-                <li role="presentation" class="active" style="background-color:#80AE2F;"><a href="#">Gestion thé</a></li>
-                <li role="presentation"><a href="#">Gestion parcelles</a></li>
+                <li role="presentation"><a href="#">Gestion thé</a></li>
+                <li role="presentation" class="active"><a href="#">Gestion parcelles</a></li>
                 <li role="presentation"><a href="#">Gestion cueilleurs</a></li>
                 <li role="presentation"><a href="#">Gestion dépenses</a></li>
                 <li role="presentation"><a href="#">Gestion salaire</a></li>
             </ul>
         </center>
     </div>
-    <div class="col-lg-9" style="height: 950px;margin-top: -20px;">
-    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Gestion des variétés</h1></center></div>
+    <div class="col-lg-9" style="height: 1000px;margin-top: -20px;">
+    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Gestion des parcelles</h1></center></div>
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-              <h2>Insertion thé</h2>
-              <form class="form-horizontal" action="" method="post" id="formulaire" style="margin-top: 50px; ">
+              <h2>Insertion parcelles</h2>
+              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
-                    <input type="hidden" name="idThe">
-                    <label class="col-sm-2 control-label col-lg-4">Nom</label>
-                    <div class="col-sm-10 col-lg-6">
-                    <input type="text" name="nom" placeholder="Nom" class="form-control" id="nom">
+                    <label class="col-sm-2 control-label col-lg-4">Numéro</label>
+                    <div class="col-sm-10 col-lg-5">
+                    <input type="number" name="num" placeholder="Numéro" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Occupation</label>
-                    <div class="col-sm-10 col-lg-4">
-                    <input type="number" name="" placeholder="Occupation" class="form-control" id="occupation">
+                    <label class="col-sm-2 control-label col-lg-4">Surface</label>
+                    <div class="col-sm-10 col-lg-5">
+                    <input type="number" name="surface" placeholder="Surface(hectare)" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Rendement</label>
-                    <div class="col-sm-10 col-lg-4">
-                    <input type="number" name="" placeholder="Rendement" class="form-control" id="rendement">
+                    <label class="col-sm-2 control-label col-lg-4">Variété</label>
+                    <div class="col-sm-10 col-lg-5">
+                    <input type="text" name="variete" placeholder="Variété" class="form-control">
                     </div>
-                  </div>               
+                  </div>
+                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group">
                       <button style="
                       margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
-
-                      <button style="
-                      margin-top: 20px; display: none;" type="submit" class="btn btn-primary" id="modifieur">Modifier</button>
-
-
                   </div>
                 </form>
               </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
-      <div style="height: 348px;overflow: scroll;" id="resultat">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nom</th>
-              <th>Occupation</th>
-              <th>Rendement</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td><a href=""><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-              <td> <a href=""><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
-
-            </tr>
-            
-          </tbody>
-        </table>
+      <div style="height: 400px;overflow: scroll;">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail parcelles">
+                <img src="../assets/img/fondLogin.jpg" alt="...">
+                <div class="caption">
+                    <center>
+                        <h1>#1</h1>
+                        <p>69 ha</p>
+                        <p>Cannabis</p>
+                        <p><a href="#" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
+                    </center>      
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
 </div>

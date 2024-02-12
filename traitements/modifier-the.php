@@ -1,6 +1,6 @@
 <?php
     include_once('../inc/fonction.php');  
 
-    $data = getThe($_POST['idThe']);
-    echo json_encode($data);
+    updateThe($_POST['idThe'], $_POST['nom'], $_POST['occupation'], $_POST['rendement']);
+    echo json_encode(true);
 ?>

@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACCUEIL</title>
+    <title>Cueilleurs</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <script src="../js/gestionThe.js"></script>
 
 </head>
 <body style="background-color:#e7e7e7;">
-  <script>
-    connexion();
-  </script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,71 +31,67 @@
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
-                <li role="presentation" class="active" style="background-color:#80AE2F;"><a href="#">Gestion thé</a></li>
-                <li role="presentation"><a href="#">Gestion parcelles</a></li>
-                <li role="presentation"><a href="#">Gestion cueilleurs</a></li>
-                <li role="presentation"><a href="#">Gestion dépenses</a></li>
-                <li role="presentation"><a href="#">Gestion salaire</a></li>
+                <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
+                <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
+                <li role="presentation" class="active"><a href="#">Gestion cueilleurs</a></li>
+                <li role="presentation"><a href="gestion-depense.php">Gestion dépenses</a></li>
+                <li role="presentation"><a href="gestion-salaire.php">Gestion salaire</a></li>
             </ul>
         </center>
     </div>
     <div class="col-lg-9" style="height: 950px;margin-top: -20px;">
-    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Gestion des variétés</h1></center></div>
+    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;background-size;color:white;padding-top:20px;"><center><h1>Gestion des cueilleurs</h1></center></div>
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-              <h2>Insertion thé</h2>
-              <form class="form-horizontal" action="" method="post" id="formulaire" style="margin-top: 50px; ">
+              <h2>Insertion cueilleurs</h2>
+              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
-                    <input type="hidden" name="idThe">
                     <label class="col-sm-2 control-label col-lg-4">Nom</label>
                     <div class="col-sm-10 col-lg-6">
-                    <input type="text" name="nom" placeholder="Nom" class="form-control" id="nom">
+                    <input id="" type="text" name="nom" placeholder="Nom" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Occupation</label>
+                    <label class="col-sm-2 control-label col-lg-4">genre</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input type="number" name="" placeholder="Occupation" class="form-control" id="occupation">
+                    <input id="" type="text" name="genre" placeholder="genre" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Rendement</label>
+                    <label class="col-sm-2 control-label col-lg-4">Date de naissance</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input type="number" name="" placeholder="Rendement" class="form-control" id="rendement">
+                    <input id="" type="date" name="" placeholder="Date de naissance" class="form-control">
                     </div>
-                  </div>               
+                  </div>
+                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group">
                       <button style="
                       margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
-
-                      <button style="
-                      margin-top: 20px; display: none;" type="submit" class="btn btn-primary" id="modifieur">Modifier</button>
-
-
+                       <button style="
+                      margin-top: 20px;" type="submit" class="btn btn-default">Modifier</button>
                   </div>
                 </form>
               </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
-      <div style="height: 348px;overflow: scroll;" id="resultat">
+      <div style="height: 348px;overflow: scroll;">
         <table class="table table-hover">
           <thead>
             <tr>
               <th>#</th>
               <th>Nom</th>
-              <th>Occupation</th>
-              <th>Rendement</th>
+              <th>Genre</th>
+              <th>Date de naissance</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">1</th>
               <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td><a href=""><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-              <td> <a href=""><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
-
+              <td>Mâle</td>
+              <td>1999-05-12</td>
+              <td><a href="#1"><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a>  <a href="#2"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
             
           </tbody>
