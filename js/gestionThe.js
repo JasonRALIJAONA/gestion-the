@@ -1,6 +1,6 @@
 function connexion() {
     window.addEventListener("load", function () {
-    
+        displayThe();
         function sendData() {
           var xhr; 
           try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
@@ -39,6 +39,7 @@ function connexion() {
       
         // Accédez à l'élément form …
         var form = document.getElementById("formulaire");
+        //console.log(form);
       
         // … et prenez en charge l'événement submit.
         form.addEventListener("submit", function (event) {
@@ -84,7 +85,7 @@ function displayTheTab(tab) {
 
     // le corps du tableau
     tbody=document.createElement("tbody");
-
+    console.log(tab);
     tab.forEach(element => {
         var trTemporaire=document.createElement("tr");
     
@@ -159,7 +160,7 @@ function displayThe()
        if(xhr.readyState  == 4){
         if(xhr.status  == 200) {
             var retour = JSON.parse(xhr.responseText);
-
+            console.log(retour);
             displayTheTab(retour);
         } else {
             document.dyn="Error code " + xhr.status;
@@ -176,7 +177,7 @@ function displayThe()
 
 function removeRow(button) {
     var tr=button.parentNode;
-    var idAchat=tr.firstChild.innerText;
+    var idThe=tr.firstChild.innerText;
     idThe=parseInt(idThe);
   
   
@@ -207,7 +208,7 @@ function removeRow(button) {
     
   
   //XMLHttpRequest.open(method, url, async)
-   xhr.open("GET", "../traitement/supprimer-the.php?idThe="+idAchat,  true); 
+   xhr.open("GET", "../traitements/supprimer-the.php?idThe="+idThe,  true); 
    
    //XMLHttpRequest.send(body)
    xhr.send(); 
@@ -233,6 +234,7 @@ function removeRow(button) {
       }
   
       // Liez l'objet FormData et l'élément form
+      var form = document.getElementById("formulaire");
       var formData = new FormData(form);
   
     //  Définissez ce qui se passe si la soumission s'est opérée avec succès
@@ -251,7 +253,7 @@ function removeRow(button) {
          if(xhr.readyState  == 4){
           if(xhr.status  == 200) {
               var retour = JSON.parse(xhr.responseText);
-              console.log(retour);
+              //console.log(retour);
               displayThe();
           } else {
               document.dyn="Error code " + xhr.status;
@@ -260,6 +262,7 @@ function removeRow(button) {
   
       }; 
   
+      
       // Configurez la requête
       xhr.open("POST", "../traitement/modifier-the.php");
   
@@ -277,9 +280,7 @@ function removeRow(button) {
     var occupationThe=cellules[2].innerText;
     var rendementThe=cellules[3].innerText;
 
-    var hiddenIdAchat=document.getElementById("idThe");
-    console.log(hiddenIdAchat);
-    console.log(idAchat);
+    var hiddenIdThe=document.getElementById("idThe");
     hiddenIdThe.value=idThe;
   
     var occupation=document.getElementById("occupation");
@@ -293,5 +294,5 @@ function removeRow(button) {
   
     var modifieur=document.getElementById("modifieur");
     modifieur.style.display="block";
-  
+    
   }
