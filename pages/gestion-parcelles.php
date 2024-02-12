@@ -64,6 +64,14 @@
                     ?>>
                     </div>
                   </div>
+                  
+                  <?php if ($modif) {
+                    ?>
+                      <input type="hidden" name="taloha" value="<?php echo $_GET['modif'];?>">
+                    <?php
+                  }
+                  ?>
+
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Surface</label>
                     <div class="col-sm-10 col-lg-5">
@@ -91,11 +99,9 @@
                     </select>
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
-                      <a href="#" class="btn btn-default" role="button">Modifier</a>
 
                   </div>
                 </form>
