@@ -17,24 +17,13 @@ function connexion() {
           // Liez l'objet FormData et l'élément form
           var formData = new FormData(form);
       
-        //  Définissez ce qui se passe si la soumission s'est opérée avec succès
-        //   xhr.addEventListener("load", function(event) {
-        //     $msg=(event.target.responseText!="")?"Achat effectue ":"OK";
-        //     alert($msg);
-        //   });
-      
-        //   // Definissez ce qui se passe en cas d'erreur
-        //   xhr.addEventListener("error", function(event) {
-        //     alert('Oups! Quelque chose s\'est mal passé.');
-        //   });
-      
           xhr.onreadystatechange  = function() 
           { 
              if(xhr.readyState  == 4){
               if(xhr.status  == 200) {
                   var retour = JSON.parse(xhr.responseText);
                   console.log(retour);
-                  displayThe()
+                  displayThe();
               } else {
                   document.dyn="Error code " + xhr.status;
               }
