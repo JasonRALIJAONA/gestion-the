@@ -12,8 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcelles</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/accueil.css">
-
 </head>
 <body style="background-color:#e7e7e7;">
 <nav class="navbar navbar-default">
