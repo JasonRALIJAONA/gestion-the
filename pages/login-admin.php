@@ -6,8 +6,7 @@
     <title>THE</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 </head>
-<body style="background-color:#e7e7e7;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;background-size">
-       
+<body style="background-color:#e7e7e7;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;background-size">  
         <div class="container">
                 <div class="row">
                         <center>
@@ -30,8 +29,6 @@
                                     <p style="color:red">Veuillez réessayer</p>
                                     <p style="
                                         margin-top: 20px;"><a href="">Se connecter en tant qu'utilisateur?</a></p>
-
-                                    
                                     <div class="form-group">
                                         <button style="
                                         margin-top: 20px;" type="submit" class="btn btn-primary">Se connecter</button>
