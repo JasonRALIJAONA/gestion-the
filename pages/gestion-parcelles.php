@@ -39,9 +39,9 @@
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
-                <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
+                <li role="presentation"><a href="gestion-the.html">Gestion thé</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion parcelles</a></li>
-                <li role="presentation"><a href="gestion-cueilleurs.php">Gestion cueilleurs</a></li>
+                <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>
                 <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
                 <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
             </ul>
