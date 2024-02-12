@@ -17,13 +17,13 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-4">E-Mail</label>
                                         <div class="col-sm-10 col-lg-6">
-                                        <input type="text" name="email" placeholder="E-Mail" class="form-control">
+                                        <input type="text" name="email" placeholder="E-Mail" class="form-control" value="admin@gmail.com">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-4">Mot de passe</label>
                                         <div class="col-sm-10 col-lg-4">
-                                        <input type="password" name="mdp" placeholder="Mot de passe" class="form-control">
+                                        <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="admin">
                                         </div>
                                     </div>
                                     <?php

@@ -10,5 +10,5 @@
         header('Location:../pages/login-admin.php?error=Email ou mot de passe invalide');    
     }
     
-    header();
+    header('Location:../pages/index.html');
 ?>
