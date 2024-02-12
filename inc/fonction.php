@@ -56,7 +56,12 @@
         $conn = Connect();
         $sql = "SELECT * FROM the";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
+        $tab = array();
+        while($res=mysqli_fetch_array($result))
+        {
+            $tab[] = $res;
+        }
+        mysqli_free_result($tab);
         mysqli_close($conn);
         return $row;
     }
