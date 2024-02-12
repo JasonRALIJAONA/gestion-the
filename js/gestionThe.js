@@ -287,21 +287,21 @@ function removeRow(button) {
     var idThe=cellules[0].innerText;
     var nomThe=cellules[1].innerText;
     var occupationThe=cellules[2].innerText;
-   
-  
-    var hiddenIdAchat=document.getElementById("idAchat");
+    var rendementThe=cellules[3].innerText;
+
+    var hiddenIdAchat=document.getElementById("idThe");
     console.log(hiddenIdAchat);
     console.log(idAchat);
-    hiddenIdAchat.value=idAchat;
+    hiddenIdThe.value=idThe;
   
-    var selection=document.getElementById("selection");
-    selection.value=produit;
+    var occupation=document.getElementById("occupation");
+    occupation.value=occupationThe;
+
+    var nom=document.getElementById("nom");
+    nom.value=nomThe;
   
-    var pu=document.getElementById("prixU");
-    pu.value=prixUnitaire;
-  
-    var qtt=document.getElementById("quantite");
-    qtt.value=quantite;
+    var rendement=document.getElementById("rendement");
+    rendement.value=rendementThe;
   
     var modifieur=document.getElementById("modifieur");
     modifieur.style.display="block";
