@@ -38,7 +38,7 @@
     
         $sql = "INSERT INTO the (nom, occupation, rendement) VALUES ('$nom', $occupation, $rendement)";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
     
     function getThe($idThe)
@@ -47,7 +47,7 @@
         $sql = "SELECT * FROM the WHERE idThe = $idThe";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $row;
     }
 
@@ -62,7 +62,7 @@
             $tab[] = $res;
         }
         mysqli_free_result($result); // Correction : Libérer le résultat de la requête, pas le tableau
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $tab; // Correction : Retourner le tableau $tab au lieu de $row
     }
 
@@ -71,7 +71,6 @@
         $conn = Connect();
         $sql = "UPDATE the SET nom='$nom', occupation=$occupation, rendement=$rendement WHERE idThe=$idThe";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
     }
 
     function deleteThe($idThe)
@@ -79,7 +78,7 @@
         $conn = Connect();
         $sql = "DELETE FROM the WHERE idThe=$idThe";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function insertParcelle($numero, $surface, $idThe)
@@ -87,7 +86,7 @@
         $conn = Connect();
         $sql = "INSERT INTO parcelle (numero, surface, idThe) VALUES ($numero, $surface, $idThe)";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function getParcelle($numero)
@@ -96,7 +95,7 @@
         $sql = "SELECT * FROM parcelle WHERE numero = $numero";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $row;
     }
 
@@ -105,9 +104,14 @@
         $conn = Connect();
         $sql = "SELECT * FROM parcelle";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
-        return $row;
+
+        $parcelles = array(); // Initialisation du tableau des parcelles
+        while ($row = mysqli_fetch_assoc($result)) {
+            $parcelles[] = $row; // Ajout de chaque ligne de résultat au tableau des parcelles
+        }
+        // mysqli_close($conn);
+        return $parcelles; // Retourner le tableau contenant toutes les parcelles
+
     }
 
     function updateParcelle($numero, $surface, $idThe)
@@ -115,7 +119,7 @@
         $conn = Connect();
         $sql = "UPDATE parcelle SET surface = $surface, idThe = $idThe WHERE numero = $numero";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function deleteParcelle($numero)
@@ -123,7 +127,7 @@
         $conn = Connect();
         $sql = "DELETE FROM parcelle WHERE numero = $numero";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function insertCueilleur($nom, $genre, $dateNaissance)
@@ -131,7 +135,7 @@
         $conn = Connect();
         $sql = "INSERT INTO cueilleur (nom, genre, dateNaissance) VALUES ('$nom', '$genre', '$dateNaissance')";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function getCueilleur($idCueilleur)
@@ -140,7 +144,7 @@
         $sql = "SELECT * FROM cueilleur WHERE idCueilleur = $idCueilleur";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $row;
     }
 
@@ -150,11 +154,13 @@
         $conn = Connect();
         $sql = "SELECT * FROM cueilleur";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
-        return $row;
+        $cueilleurs = array(); // Initialisation du tableau des cueilleurs
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cueilleurs[] = $row; // Ajout de chaque ligne de résultat au tableau des cueilleurs
+        }
+        // mysqli_close($conn);
+        return $cueilleurs; // Retourner le tableau contenant tous les cueilleurs
     }
-
 
     function updateCueilleur($idCueilleur, $nom, $genre, $dateNaissance)
     {
@@ -163,7 +169,7 @@
         $sql2 = "UPDATE cueilleur SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
 
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function deleteCueilleur($idCueilleur)
@@ -171,7 +177,7 @@
         $conn = Connect();
         $sql = "DELETE FROM cueilleur WHERE idCueilleur = $idCueilleur";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function insertDepense($description)
@@ -179,7 +185,7 @@
         $conn = Connect();
         $sql = "INSERT INTO depense (description) VALUES ('$description')";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function getDepense($idDepense)
@@ -188,7 +194,7 @@
         $sql = "SELECT * FROM depense WHERE idDepense = $idDepense";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $row;
     }
 
@@ -198,7 +204,7 @@
         $sql = "SELECT * FROM depense";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($conn);
+        // mysqli_close($conn);
         return $row;
     }
 
@@ -207,7 +213,7 @@
         $conn = Connect();
         $sql = "UPDATE depense SET description = '$description' WHERE idDepense = $idDepense";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function deleteDepense($idDepense)
@@ -215,7 +221,7 @@
         $conn = Connect();
         $sql = "DELETE FROM depense WHERE idDepense = $idDepense";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function insertSalaire($idCueilleur, $montant)
@@ -223,15 +229,20 @@
         $conn = Connect();
         $sql = "INSERT INTO salaire (idCueilleur, montant) VALUES ($idCueilleur, $montant)";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
-    function lireSalaire()
+    function listSalaire()
     {
         $conn = Connect();
-        $sql = "SELECT c.*, s.* FROM cueilleur c JOIN salaire s ON s.idCueilleur = c.idCueilleur;";
-        mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        $sql = "SELECT c.*, s.* FROM cueilleur c JOIN salaire s ON s.idCueilleur = c.idCueilleur";
+        $result = mysqli_query($conn, $sql);
+        $salaires = array(); // Initialisation du tableau des salaires
+        while ($row = mysqli_fetch_assoc($result)) {
+            $salaires[] = $row; // Ajout de chaque ligne de résultat au tableau des salaires
+        }
+        // mysqli_close($conn);
+        return $salaires; // Retourner le tableau contenant tous les salaires
     }
 
     function updateSalaire($idCueilleur, $montant)
@@ -239,7 +250,7 @@
         $conn = Connect();
         $sql = "UPDATE salaire SET montant = $montant WHERE idCueilleur = $idCueilleur";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
     function insertCueillette($dateCueillette, $idCueilleur, $numeroParcelle, $poids)
@@ -247,7 +258,7 @@
         $conn = Connect();
         $sql = "INSERT INTO cueillette (dateCueillette, idCueilleur, numeroParcelle, poids) VALUES ('$dateCueillette', $idCueilleur, $numeroParcelle, $poids)";
         mysqli_query($conn, $sql);
-        mysqli_close($conn);
+        // mysqli_close($conn);
     }
 
 

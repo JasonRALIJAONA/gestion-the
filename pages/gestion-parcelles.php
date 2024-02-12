@@ -2,6 +2,7 @@
   include_once '../inc/fonction.php';
   $listeThe = listThe();
   $listeParcelle = listParcelle();
+  $modif = isset($_GET['modif']);
 ?>
 
 <!DOCTYPE html>
@@ -51,17 +52,26 @@
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Insertion parcelles</h2>
-              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+
+              <form class="form-horizontal" action="../traitements/insertion-parcelles.php" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Numéro</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="number" name="numero" placeholder="Numéro" class="form-control">
+                    <input type="number" name="numero" placeholder="Numéro" class="form-control"
+                    <?php if ($modif) {
+                      echo "value=".$_GET['modif'];                
+                    }
+                    ?>>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Surface</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="number" name="surface" placeholder="Surface(hectare)" class="form-control">
+                    <input type="number" name="surface" placeholder="Surface(hectare)" class="form-control"
+                    <?php if ($modif) {
+                      echo "value=".getParcelle($_GET['modif'])['surface'];                
+                    }
+                    ?>>
                     </div>
                   </div>
                   <div class="form-group">
@@ -70,7 +80,12 @@
                     <select name="idThe" id="idThe" class="form-control">
                       <?php
                         foreach ($listeThe as $item) {
+                          if ($modif && $item['idThe']==$_GET['modif']){
+                            echo "<option value='".$item['idThe']."' selected>".$item['nom']."</option>";
+                          }
+                          else {
                             echo "<option value='".$item['idThe']."'>".$item['nom']."</option>";
+                          }
                         }
                         ?>
                     </select>
@@ -89,33 +104,26 @@
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
       <div style="height: 400px;overflow: scroll;">
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail parcelles">
-                <img src="../assets/img/fondLogin.jpg" alt="...">
+              
                 <?php
                         foreach ($listeParcelle as $item) {
                           ?>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="thumbnail parcelles">
+                            <img src="../assets/img/fondLogin.jpg" alt="...">
                             <div class="caption">
                               <center>
                                   <h1>#<?php echo $item['numero'];?></h1>
                                   <p><?php echo $item['surface'];?></p>
-                                  <p><?php echo $item['numero'];?></p>
-                                  <p><a href="#" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
+                                  <p><?php echo getThe($item['idThe'])['nom'];?></p>
+                                  <p><a href="../traitements/supprimer-parcelles.php?numero=<?php echo $item['numero'];?>" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="../traitements/modifier-parcelles.php?numero=<?php echo $item['numero'];?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
                               </center>      
                           </div>
+                        </div>
+                      </div>  
                           <?php
                         }
                         ?>
-                <div class="caption">
-                    <center>
-                        <h1>#1</h1>
-                        <p>69 ha</p>
-                        <p>Cannabis</p>
-                        <p><a href="#" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
-                    </center>      
-                </div>
-              </div>
-            </div>
           </div>
       </div>
     </div>
