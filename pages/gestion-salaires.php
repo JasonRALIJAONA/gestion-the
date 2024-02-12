@@ -1,3 +1,10 @@
+<?php
+  include_once '../inc/fonction.php';
+  $listeCueilleurs = listCueilleur();
+  $modif = isset($_GET['modif']);
+  $listeSalaires = listSalaire();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +38,9 @@
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
-                <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
+                <li role="presentation"><a href="gestion-the.html">Gestion thé</a></li>
                 <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
-                <li role="presentation"><a href="gestion-cueilleurs.php">Gestion cueilleurs</a></li>
+                <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>
                 <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion salaire</a></li>
             </ul>
@@ -44,27 +51,43 @@
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Insertion salaire</h2>
-              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+              <form class="form-horizontal" action="../traitements/insertion-salaire.php" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Cueilleurs</label>
                     <div class="col-sm-10 col-lg-6">
-                        <select name="cueilleur" id="" class="form-control">
-                            <option value="">Cueilleur 1</option>
-                            <option value="">Cueilleur 2</option>
-                        </select>
+                      <select name="cueilleur" id="cueilleur" class="form-control">
+                        <?php
+                          foreach ($listeCueilleurs as $item) {
+                            if ($modif && $item['idCueilleur']==$_GET['modif']){
+                              echo "<option value='".$item['idCueilleur']."' selected>".$item['nom']."</option>";
+                            }
+                            else {
+                              echo "<option value='".$item['idThe']."'>".$item['nom']."</option>";
+                            }
+                          }
+                          ?>
+                      </select>
                     </div>
                   </div>
+                  <?php if ($modif) {
+                    ?>
+                      <input type="hidden" name="taloha" value="<?php echo $_GET['modif'];?>">
+                    <?php
+                  }
+                  ?>
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Salaire</label>
                     <div class="col-sm-10 col-lg-6">
-                        <input type="number" name="salaire" id="" placeholder="Salaire" class="form-control">
+                        <input type="number" name="salaire" id="" placeholder="Salaire" class="form-control"
+                        <?php if ($modif) {
+                      echo "value=".getSalaire($_GET['modif'])['montant'];                
+                    }
+                    ?>>
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button  type="submit" class="btn btn-primary">Valider</button>
-                       <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>
@@ -81,12 +104,19 @@
             </tr>
           </thead>
           <tbody>
+          <?php
+              foreach ($listeSalaires as $item) {
+                ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>69000</td>
-              <td><a href="#2"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
+              
+              <th scope="row"><?php echo $item['idCueilleur'];?></th>
+              <td><?php echo $item['nom'];?></td>
+              <td><?php echo $item['montant'];?></td>
+              <td><a href="../traitements/modifier-salaire.php?numero=<?php echo $item['idCueilleur'];?>"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
+            <?php
+              }
+            ?>
             
           </tbody>
         </table>
