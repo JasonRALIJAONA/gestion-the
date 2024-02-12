@@ -66,13 +66,13 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Variété de thé</label>
                     <div class="col-sm-10 col-lg-5">
-                      <select name="idThe" id="idThe">
-                        <?php
-                          for ($i=0; $i < ; $i++) { 
-                            # code...
-                          }
+                    <select name="idThe" id="idThe" class="form-control">
+                      <?php
+                        foreach ($liste as $item) {
+                            echo "<option value='".$item['idThe']."'>".$item['nom']."</option>";
+                        }
                         ?>
-                      </select>
+                    </select>
                     </div>
                   </div>
                   <div class="form-group">
