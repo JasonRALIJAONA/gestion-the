@@ -264,7 +264,7 @@ function removeRow(button) {
   
       
       // Configurez la requête
-      xhr.open("POST", "../traitement/modifier-the.php");
+      xhr.open("POST", "../traitements/modifier-the.php");
   
       // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
       xhr.send(formData);
