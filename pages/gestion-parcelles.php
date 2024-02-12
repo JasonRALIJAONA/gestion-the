@@ -1,6 +1,7 @@
 <?php
   include_once '../inc/fonction.php';
-  $liste = listThe();
+  $listeThe = listThe();
+  $listeParcelle = listParcelle();
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +69,7 @@
                     <div class="col-sm-10 col-lg-5">
                     <select name="idThe" id="idThe" class="form-control">
                       <?php
-                        foreach ($liste as $item) {
+                        foreach ($listeThe as $item) {
                             echo "<option value='".$item['idThe']."'>".$item['nom']."</option>";
                         }
                         ?>
@@ -90,6 +91,20 @@
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail parcelles">
                 <img src="../assets/img/fondLogin.jpg" alt="...">
+                <?php
+                        foreach ($listeParcelle as $item) {
+                          ?>
+                            <div class="caption">
+                              <center>
+                                  <h1>#<?php echo $item['numero'];?></h1>
+                                  <p><?php echo $item['surface'];?></p>
+                                  <p><?php echo $item['numero'];?></p>
+                                  <p><a href="#" class="btn btn-primary" style="background-color: red;border-color: red;" role="button"><span class="glyphicon glyphicon-trash"></span></a> <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span></a></p>
+                              </center>      
+                          </div>
+                          <?php
+                        }
+                        ?>
                 <div class="caption">
                     <center>
                         <h1>#1</h1>

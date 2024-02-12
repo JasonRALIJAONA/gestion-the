@@ -105,10 +105,14 @@
         $conn = Connect();
         $sql = "SELECT * FROM parcelle";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
+        $parcelles = array(); // Initialisation du tableau des parcelles
+        while ($row = mysqli_fetch_assoc($result)) {
+            $parcelles[] = $row; // Ajout de chaque ligne de résultat au tableau des parcelles
+        }
         mysqli_close($conn);
-        return $row;
+        return $parcelles; // Retourner le tableau contenant toutes les parcelles
     }
+
 
     function updateParcelle($numero, $surface, $idThe)
     {
