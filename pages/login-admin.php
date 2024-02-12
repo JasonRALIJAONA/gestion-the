@@ -13,20 +13,23 @@
                             <h1 style="font-family: 'Bauhaus 93';margin-top:50px;" >DI-T</h1>
                             <div class="row" style="margin-top: 100px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
                                 <h1>LOGIN(Admin)</h1>
-                                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+                                <form class="form-horizontal" action="../traitements/traite-login-admin.php" method="post" style="margin-top: 50px; ">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-4">E-Mail</label>
                                         <div class="col-sm-10 col-lg-6">
-                                        <input type="text" name="" placeholder="E-Mail" class="form-control">
+                                        <input type="text" name="email" placeholder="E-Mail" class="form-control" value="admin@gmail.com">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-4">Mot de passe</label>
                                         <div class="col-sm-10 col-lg-4">
-                                        <input type="password" name="" placeholder="Mot de passe" class="form-control">
+                                        <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="admin01">
                                         </div>
                                     </div>
-                                    <p style="color:red">Veuillez réessayer</p>
+                                    <?php
+                                      if (isset($_GET['error'])) {?>
+                                        <p style="color:red"><?php echo($_GET['error']); ?></p>
+                                      <?php } ?>
                                     <p style="
                                         margin-top: 20px;"><a href="">Se connecter en tant qu'utilisateur?</a></p>
                                     <div class="form-group">
