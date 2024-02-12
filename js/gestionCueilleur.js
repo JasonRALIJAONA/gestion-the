@@ -299,5 +299,4 @@ function removeRow(button) {
   
     var modifieur=document.getElementById("modifieur");
     modifieur.style.display="block";
-    
   }

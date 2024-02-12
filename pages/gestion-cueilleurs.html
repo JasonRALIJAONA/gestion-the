@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cueilleurs</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <script src="../js/gestionCueilleur.js"></script>
 
 </head>
 <body style="background-color:#e7e7e7;">
+  <script>connexion()</script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,27 +50,26 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Nom</label>
                     <div class="col-sm-10 col-lg-6">
-                    <input id="" type="text" name="nom" placeholder="Nom" class="form-control">
+                    <input id="nom" type="text" name="nom" placeholder="Nom" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">genre</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="text" name="genre" placeholder="genre" class="form-control">
+                    <input id="genre" type="text" name="genre" placeholder="genre" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Date de naissance</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="date" name="" placeholder="Date de naissance" class="form-control">
+                    <input id="dateNaissance" type="date" name="dateNaissance" placeholder="Date de naissance" class="form-control">
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
-                      <a href="#" class="btn btn-default" role="button">Modifier</a>
-                  </div>
+                    </div>
+                    <a href="#" class="btn btn-default" role="button" onclick="modifier()">Modifier</a>
                 </form>
               </div>
       </center>

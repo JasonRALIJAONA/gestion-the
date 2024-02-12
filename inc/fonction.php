@@ -156,7 +156,7 @@
     }
 
 
-    function updateCueilleur($idCueilleur, $nom, $genre, $dateNaissance, $salaire)
+    function updateCueilleur($idCueilleur, $nom, $genre, $dateNaissance)
     {
         $conn = Connect();
         $sql = "UPDATE cueilleur SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
