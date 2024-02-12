@@ -120,4 +120,38 @@
         mysqli_close($conn);
     }
 
+    function insertDepense($description)
+    {
+        $conn = Connect();
+        $sql = "INSERT INTO depense (description) VALUES ('$description')";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+    }
+
+    function listDepense()
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM depense";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row;
+    }
+
+    function updateDepense($idDepense, $description)
+    {
+        $conn = Connect();
+        $sql = "UPDATE depense SET description = '$description' WHERE idDepense = $idDepense";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+    }
+
+    function deleteDepense($idDepense)
+    {
+        $conn = Connect();
+        $sql = "DELETE FROM depense WHERE idDepense = $idDepense";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+    }
+
 ?>
