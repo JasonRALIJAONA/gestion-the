@@ -51,7 +51,6 @@
                     <input id="" type="text" name="depense" placeholder="Dépense" class="form-control">
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>

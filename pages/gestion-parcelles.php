@@ -39,9 +39,9 @@
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
-                <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
+                <li role="presentation"><a href="gestion-the.html">Gestion thé</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion parcelles</a></li>
-                <li role="presentation"><a href="gestion-cueilleurs.php">Gestion cueilleurs</a></li>
+                <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>
                 <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
                 <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
             </ul>
@@ -64,6 +64,14 @@
                     ?>>
                     </div>
                   </div>
+                  
+                  <?php if ($modif) {
+                    ?>
+                      <input type="hidden" name="taloha" value="<?php echo $_GET['modif'];?>">
+                    <?php
+                  }
+                  ?>
+
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Surface</label>
                     <div class="col-sm-10 col-lg-5">
@@ -91,11 +99,9 @@
                     </select>
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
-                      <a href="#" class="btn btn-default" role="button">Modifier</a>
 
                   </div>
                 </form>
