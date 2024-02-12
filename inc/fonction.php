@@ -166,7 +166,6 @@
     {
         $conn = Connect();
         $sql = "UPDATE cueilleur SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
-        $sql2 = "UPDATE cueilleur SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
 
         mysqli_query($conn, $sql);
         // mysqli_close($conn);
@@ -243,6 +242,17 @@
         }
         // mysqli_close($conn);
         return $salaires; // Retourner le tableau contenant tous les salaires
+    }
+
+    function getSalaire($idCueilleur)
+    {
+        $conn = Connect();
+        $sql = "SELECT c.*, s.* FROM cueilleur c JOIN salaire s ON s.idCueilleur = c.idCueilleur  WHERE c.idCueilleur = $idCueilleur";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        // mysqli_close($conn);
+        return $row;
+
     }
 
     function updateSalaire($idCueilleur, $montant)
