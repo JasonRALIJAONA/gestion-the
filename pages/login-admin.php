@@ -23,7 +23,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-4">Mot de passe</label>
                                         <div class="col-sm-10 col-lg-4">
-                                        <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="admin">
+                                        <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="admin01">
                                         </div>
                                     </div>
                                     <?php
