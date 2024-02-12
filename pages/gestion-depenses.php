@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cueilleurs</title>
+    <title>Depenses</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
 </head>
@@ -33,47 +33,35 @@
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
                 <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
                 <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
-                <li role="presentation" class="active"><a href="#">Gestion cueilleurs</a></li>
-                <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
+                <li role="presentation"><a href="gestion-cueilleurs.php">Gestion cueilleurs</a></li>
+                <li role="presentation" class="active"><a href="#">Gestion dépenses</a></li>
                 <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
             </ul>
         </center>
     </div>
     <div class="col-lg-9" style="height: 950px;margin-top: -20px;">
-    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;background-size;color:white;padding-top:20px;"><center><h1>Gestion des cueilleurs</h1></center></div>
+    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;background-size;color:white;padding-top:20px;"><center><h1>Gestion des dépenses</h1></center></div>
       <center>
-          <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-              <h2>Insertion cueilleurs</h2>
+          <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
+              <h2>Insertion dépenses</h2>
               <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Nom</label>
+                    <label class="col-sm-2 control-label col-lg-4">Dépense</label>
                     <div class="col-sm-10 col-lg-6">
-                    <input id="" type="text" name="nom" placeholder="Nom" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">genre</label>
-                    <div class="col-sm-10 col-lg-4">
-                    <input id="" type="text" name="genre" placeholder="genre" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Date de naissance</label>
-                    <div class="col-sm-10 col-lg-4">
-                    <input id="" type="date" name="" placeholder="Date de naissance" class="form-control">
+                    <input id="" type="text" name="depense" placeholder="Dépense" class="form-control">
                     </div>
                   </div>
                   <p style="color:red">Veuillez réessayer</p>                  
-                  <div class="form-group">
-                      <button style="
-                      margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
+                  <div class="form-group" style="
+                      margin-top: 20px;">
+                      <button type="submit" class="btn btn-primary">Valider</button>
                       <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
-      <div style="height: 348px;overflow: scroll;">
+      <div style="height: 400px;overflow: scroll;">
         <table class="table table-hover">
           <thead>
             <tr>
