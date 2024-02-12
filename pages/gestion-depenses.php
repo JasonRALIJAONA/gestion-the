@@ -1,3 +1,8 @@
+<?php
+  include_once '../inc/fonction.php';
+  $listeDepenses = listDepense();
+  $modif = isset($_GET['modif']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +59,6 @@
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
-                      <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>
@@ -65,18 +69,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Nom</th>
-              <th>Genre</th>
-              <th>Date de naissance</th>
-              <th>Actions</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Mâle</td>
-              <td>1999-05-12</td>
+              <td></td>
               <td><a href="#1"><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a>  <a href="#2"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
             
