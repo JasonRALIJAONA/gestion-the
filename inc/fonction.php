@@ -17,6 +17,21 @@
         }
     }
 
+    function loginUtilisateur($email, $mdp)
+    {
+        $sqlall="select*from utilisateurs where email='$email' And mdp=sha1('$mdp') And role='utilisateur';";
+        $valiny=mysqli_query(Connect(), $sqlall);
+        $donnee=mysqli_fetch_assoc($valiny);
+        $nb=mysqli_num_rows($valiny);
+        if ($nb==0) {
+            return -1; //tsy nety 
+        }
+        else
+        {
+            return $donnee['idUser'];
+        }
+    }
+
     function insertThe($nom, $occupation, $rendement)
     {
         $conn = Connect();
@@ -24,6 +39,16 @@
         $sql = "insert into the(idThe, nom, occupation, rendement values(null, '$nom', $occupation, $rendement)";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
+    }
+
+    function getThe($idThe)
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM the WHERE idThe = $idThe";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row;
     }
 
     function listThe()
@@ -60,6 +85,16 @@
         mysqli_close($conn);
     }
 
+    function getParcelle($numero)
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM parcelle WHERE numero = $numero";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row;
+    }
+
     function listParcelle()
     {
         $conn = Connect();
@@ -89,15 +124,26 @@
     function insertCueilleur($nom, $genre, $dateNaissance)
     {
         $conn = Connect();
-        $sql = "INSERT INTO cueilleurs (nom, genre, dateNaissance) VALUES ('$nom', '$genre', '$dateNaissance')";
+        $sql = "INSERT INTO cueilleur (nom, genre, dateNaissance) VALUES ('$nom', '$genre', '$dateNaissance')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
+    }
+
+    function getCueilleur($idCueilleur)
+    {
+        $conn = Connect();
+        $sql = "SELECT c.*, s.* FROM cueilleur c JOIN salaire s ON s.idCueilleur = c.idCueilleur
+        WHERE c.idCueilleur = $idCueilleur";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row;
     }
 
     function listCueilleur()
     {
         $conn = Connect();
-        $sql = "SELECT * FROM cueilleurs";
+        $sql = "SELECT c.*, s.* FROM cueilleur c JOIN salaire s ON s.idCueilleur = c.idCueilleur;";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         mysqli_close($conn);
@@ -107,7 +153,7 @@
     function updateCueilleur($idCueilleur, $nom, $genre, $dateNaissance)
     {
         $conn = Connect();
-        $sql = "UPDATE cueilleurs SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
+        $sql = "UPDATE cueilleur SET nom = '$nom', genre = '$genre', dateNaissance = '$dateNaissance' WHERE idCueilleur = $idCueilleur";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
@@ -115,7 +161,7 @@
     function deleteCueilleur($idCueilleur)
     {
         $conn = Connect();
-        $sql = "DELETE FROM cueilleurs WHERE idCueilleur = $idCueilleur";
+        $sql = "DELETE FROM cueilleur WHERE idCueilleur = $idCueilleur";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
@@ -126,6 +172,16 @@
         $sql = "INSERT INTO depense (description) VALUES ('$description')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
+    }
+
+    function getDepense($idDepense)
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM depense WHERE idDepense = $idDepense";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row;
     }
 
     function listDepense()
@@ -153,5 +209,7 @@
         mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
+
+
 
 ?>
