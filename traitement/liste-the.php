@@ -1,5 +1,5 @@
 <?php
-    include_once('fonction.php');  
+    include_once('../inc/fonction.php');  
 
     $data = listThe();
     echo json_encode($data);

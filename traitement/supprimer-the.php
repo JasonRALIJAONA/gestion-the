@@ -1,5 +1,5 @@
 <?php
-    include_once('fonction.php');  
+    include_once('../inc/fonction.php');  
     deleteThe($_GET['idThe']);
     echo json_encode(true);
 ?>
