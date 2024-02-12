@@ -57,13 +57,13 @@
         $sql = "SELECT * FROM the";
         $result = mysqli_query($conn, $sql);
         $tab = array();
-        while($res=mysqli_fetch_array($result))
+        while($res = mysqli_fetch_array($result))
         {
             $tab[] = $res;
         }
-        mysqli_free_result($tab);
+        mysqli_free_result($result); // Correction : Libérer le résultat de la requête, pas le tableau
         mysqli_close($conn);
-        return $row;
+        return $tab; // Correction : Retourner le tableau $tab au lieu de $row
     }
 
     function updateThe($idThe, $nom, $occupation, $rendement)
