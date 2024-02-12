@@ -34,8 +34,12 @@ CREATE TABLE cueilleur (
 
 CREATE TABLE depense (
     idDepense SMALLINT PRIMARY KEY AUTO_INCREMENT,
-    description VARCHAR(30),
-    montant decimal(10,2)
+    description VARCHAR(30)
 ) ENGINE=InnoDB;
 
+CREATE TABLE salaire (
+    idCueilleur SMALLINT,
+    montant decimal(10,2)
+) ENGINE=InnoDB;
+alter table salaire add FOREIGN KEY(idCueilleur) references cueilleur(idCueilleur);
 
