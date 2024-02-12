@@ -1,3 +1,8 @@
+<?php
+  include_once '../inc/fonction.php';
+  $liste = listThe();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +54,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Numéro</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="number" name="num" placeholder="Numéro" class="form-control">
+                    <input type="number" name="numero" placeholder="Numéro" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
@@ -59,12 +64,17 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Variété</label>
+                    <label class="col-sm-2 control-label col-lg-4">Variété de thé</label>
                     <div class="col-sm-10 col-lg-5">
-                    <input type="text" name="variete" placeholder="Variété" class="form-control">
+                      <select name="idThe" id="idThe">
+                        <?php
+                          for ($i=0; $i < ; $i++) { 
+                            # code...
+                          }
+                        ?>
+                      </select>
                     </div>
                   </div>
-                  <p style="color:red">Veuillez réessayer</p>                  
                   <div class="form-group">
                       <button style="
                       margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
