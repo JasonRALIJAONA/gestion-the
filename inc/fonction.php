@@ -71,7 +71,6 @@
         $conn = Connect();
         $sql = "UPDATE the SET nom='$nom', occupation=$occupation, rendement=$rendement WHERE idThe=$idThe";
         mysqli_query($conn, $sql);
-        // mysqli_close($conn);
     }
 
     function deleteThe($idThe)
@@ -105,14 +104,15 @@
         $conn = Connect();
         $sql = "SELECT * FROM parcelle";
         $result = mysqli_query($conn, $sql);
+
         $parcelles = array(); // Initialisation du tableau des parcelles
         while ($row = mysqli_fetch_assoc($result)) {
             $parcelles[] = $row; // Ajout de chaque ligne de résultat au tableau des parcelles
         }
         // mysqli_close($conn);
         return $parcelles; // Retourner le tableau contenant toutes les parcelles
-    }
 
+    }
 
     function updateParcelle($numero, $surface, $idThe)
     {

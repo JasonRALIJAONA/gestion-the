@@ -1,7 +1,7 @@
 <?php
     include_once('../inc/fonction.php');  
 
-    $data = listThe();
+    $data = listCueilleur();
     if ($data) {
         echo json_encode($data);
     }

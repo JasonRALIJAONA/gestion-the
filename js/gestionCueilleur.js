@@ -31,7 +31,7 @@ function connexion() {
           }; 
 
           // Configurez la requête
-          xhr.open("POST", "../traitements/insertion-the.php");
+          xhr.open("POST", "../traitements/insertion-cueilleur.php");
       
           // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
           xhr.send(formData);
@@ -64,21 +64,26 @@ function displayTheTab(tab) {
     var text=document.createTextNode("#");
 
     var th1=document.createElement("th");
-    var text=document.createTextNode("nom");
+    var text=document.createTextNode("Nom");
     th1.appendChild(text);
 
     var th2=document.createElement("th");
-    text=document.createTextNode("occupation");
+    text=document.createTextNode("Genre");
     th2.appendChild(text);
 
     var th3=document.createElement("th");
-    text=document.createTextNode("rendement");
+    text=document.createTextNode("Date de naissance");
     th3.appendChild(text);
+
+    var th4=document.createElement("th");
+    text=document.createTextNode("Actions");
+    th4.appendChild(text);
 
     ligneTete.appendChild(th);
     ligneTete.appendChild(th1);
     ligneTete.appendChild(th2);
     ligneTete.appendChild(th3);
+    ligneTete.appendChild(th4);
 
     thead.appendChild(ligneTete)
     tableau.appendChild(thead);
@@ -90,16 +95,16 @@ function displayTheTab(tab) {
         var trTemporaire=document.createElement("tr");
     
         var td1=document.createElement("td");
-        td1.innerHTML=element['idThe'];
+        td1.innerHTML=element['idCueilleur'];
     
         var td2=document.createElement("td");
         td2.innerHTML=element['nom'];
     
         var td3=document.createElement("td");
-        td3.innerHTML=element['occupation'];
+        td3.innerHTML=element['genre'];
 
         var td4=document.createElement("td");
-        td4.innerHTML=element['rendement'];
+        td4.innerHTML=element['dateNaissance'];
 
         var td6=document.createElement("button");
         td6.className="btn btn-primary";
@@ -169,7 +174,7 @@ function displayThe()
 
     }; 
   //XMLHttpRequest.open(method, url, async)
-   xhr.open("GET", "../traitements/liste-the.php",  true); 
+   xhr.open("GET", "../traitements/liste-cueilleur.php",  true); 
    
    //XMLHttpRequest.send(body)
    xhr.send(null); 
@@ -208,7 +213,7 @@ function removeRow(button) {
     
   
   //XMLHttpRequest.open(method, url, async)
-   xhr.open("GET", "../traitements/supprimer-the.php?idThe="+idThe,  true); 
+   xhr.open("GET", "../traitements/supprimer-cueilleur.php?idThe="+idThe,  true); 
    
    //XMLHttpRequest.send(body)
    xhr.send(); 
@@ -264,7 +269,7 @@ function removeRow(button) {
   
       
       // Configurez la requête
-      xhr.open("POST", "../traitements/modifier-the.php");
+      xhr.open("POST", "../traitements/modifier-cueilleur.php");
   
       // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
       xhr.send(formData);
@@ -277,22 +282,21 @@ function removeRow(button) {
   
     var idThe=cellules[0].innerText;
     var nomThe=cellules[1].innerText;
-    var occupationThe=cellules[2].innerText;
-    var rendementThe=cellules[3].innerText;
+    var genreThe=cellules[2].innerText;
+    var dateNaissance=cellules[3].innerText;
 
     var hiddenIdThe=document.getElementById("idThe");
     hiddenIdThe.value=idThe;
   
-    var occupation=document.getElementById("occupation");
-    occupation.value=occupationThe;
+    var genre=document.getElementById("genre");
+    genre.value=genreThe;
 
     var nom=document.getElementById("nom");
     nom.value=nomThe;
   
-    var rendement=document.getElementById("rendement");
-    rendement.value=rendementThe;
+    var dateNaissanceThe=document.getElementById("dateNaissance");
+    dateNaissanceThe.value=dateNaissance;
   
     var modifieur=document.getElementById("modifieur");
     modifieur.style.display="block";
-    
   }
