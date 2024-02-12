@@ -25,11 +25,17 @@ CREATE TABLE parcelle (
 
 alter table parcelle add FOREIGN KEY(idThe) references the(idThe);
 
-CREATE TABLE cueilleurs (
+CREATE TABLE cueilleur (
     idCueilleur SMALLINT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(30),
     genre CHAR(1),
-    dateNaissance DATE,
+    dateNaissance DATE
+) ENGINE=InnoDB;
+
+CREATE TABLE depense (
+    idDepense SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    description VARCHAR(30),
+    montant decimal(10,2)
 ) ENGINE=InnoDB;
 
 

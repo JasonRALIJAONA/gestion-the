@@ -9,7 +9,7 @@
         $donnee=mysqli_fetch_assoc($valiny);
         $nb=mysqli_num_rows($valiny);
         if ($nb==0) {
-            return -1;
+            return -1; //tsy nety 
         }
         else
         {
