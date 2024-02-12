@@ -61,11 +61,10 @@
                     </div>
                   </div>
                   <p style="color:red">Veuillez réessayer</p>                  
-                  <div class="form-group">
-                      <button style="
-                      margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
-                       <button style="
-                      margin-top: 20px;" type="submit" class="btn btn-default">Modifier</button>
+                  <div class="form-group" style="
+                      margin-top: 20px;">
+                      <button  type="submit" class="btn btn-primary">Valider</button>
+                       <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>

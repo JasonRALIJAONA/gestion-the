@@ -34,8 +34,8 @@
                 <li role="presentation"><a href="gestion-the.php">Gestion thé</a></li>
                 <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion cueilleurs</a></li>
-                <li role="presentation"><a href="gestion-depense.php">Gestion dépenses</a></li>
-                <li role="presentation"><a href="gestion-salaire.php">Gestion salaire</a></li>
+                <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
+                <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
             </ul>
         </center>
     </div>
@@ -67,8 +67,7 @@
                   <div class="form-group">
                       <button style="
                       margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
-                       <button style="
-                      margin-top: 20px;" type="submit" class="btn btn-default">Modifier</button>
+                      <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>
