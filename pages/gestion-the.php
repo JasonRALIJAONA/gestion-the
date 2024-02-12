@@ -32,10 +32,10 @@
             <ul class="nav nav-pills nav-stacked">
                 <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
                 <li role="presentation" class="active" style="background-color:#80AE2F;"><a href="#">Gestion thé</a></li>
-                <li role="presentation"><a href="#">Gestion parcelles</a></li>
-                <li role="presentation"><a href="#">Gestion cueilleurs</a></li>
-                <li role="presentation"><a href="#">Gestion dépenses</a></li>
-                <li role="presentation"><a href="#">Gestion salaire</a></li>
+                <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
+                <li role="presentation"><a href="gestion-cueilleurs.php">Gestion cueilleurs</a></li>
+                <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
+                <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
             </ul>
         </center>
     </div>
@@ -64,9 +64,10 @@
                     </div>
                   </div>
                   <p style="color:red">Veuillez réessayer</p>                  
-                  <div class="form-group">
-                      <button style="
-                      margin-top: 20px;" type="submit" class="btn btn-primary">Valider</button>
+                  <div class="form-group" style="
+                      margin-top: 20px;">
+                      <button type="submit" class="btn btn-primary">Valider</button>
+                      <a href="#" class="btn btn-default" role="button">Modifier</a>
                   </div>
                 </form>
               </div>
@@ -80,6 +81,7 @@
               <th>Nom</th>
               <th>Occupation</th>
               <th>Rendement</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -88,9 +90,7 @@
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
-              <td><a href=""><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-              <td> <a href=""><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
-
+              <td><a href=""><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a>  <a href=""><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
             
           </tbody>
