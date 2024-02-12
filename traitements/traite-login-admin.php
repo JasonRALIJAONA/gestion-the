@@ -8,7 +8,8 @@
 
     if ($resultat == -1) {
         header('Location:../pages/login-admin.php?error=Email ou mot de passe invalide');    
+    }else{
+        header('Location:../pages/index.html');
     }
     
-    header('Location:../pages/index.html');
 ?>
