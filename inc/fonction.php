@@ -69,14 +69,10 @@
     function updateThe($idThe, $nom, $occupation, $rendement)
     {
         $conn = Connect();
-        $sql = "UPDATE the SET nom=?, occupation=?, rendement=? WHERE idThe=?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "sddi", $nom, $occupation, $rendement, $idThe);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
+        $sql = "UPDATE the SET nom='$nom', occupation=$occupation, rendement=$rendement WHERE idThe=$idThe";
+        mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
-
 
     function deleteThe($idThe)
     {
