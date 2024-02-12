@@ -202,9 +202,12 @@
         $conn = Connect();
         $sql = "SELECT * FROM depense";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
+        $cueilleurs = array(); // Initialisation du tableau des cueilleurs
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cueilleurs[] = $row; // Ajout de chaque ligne de résultat au tableau des cueilleurs
+        }
         // mysqli_close($conn);
-        return $row;
+        return $cueilleurs; // Retourner le tableau contenant tous les cueilleurs
     }
 
     function updateDepense($idDepense, $description)

@@ -49,13 +49,23 @@
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Insertion dépenses</h2>
-              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+              <form class="form-horizontal" action="../traitements/insertion-depense.php" method="post" style="margin-top: 50px; ">
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Dépense</label>
                     <div class="col-sm-10 col-lg-6">
-                    <input id="" type="text" name="depense" placeholder="Dépense" class="form-control">
+                    <input id="" type="text" name="depense" placeholder="Dépense" class="form-control"
+                    <?php if ($modif) {
+                      echo "value=".getDepense($_GET['modif'])['description'];                
+                    }
+                    ?>>
                     </div>
                   </div>
+                  <?php if ($modif) {
+                    ?>
+                      <input type="hidden" name="taloha" value="<?php echo $_GET['modif'];?>">
+                    <?php
+                  }
+                  ?>
                   <div class="form-group" style="
                       margin-top: 20px;">
                       <button type="submit" class="btn btn-primary">Valider</button>
@@ -73,12 +83,17 @@
             </tr>
           </thead>
           <tbody>
+          <?php
+              foreach ($listeDepenses as $item) {
+                ?>
             <tr>
-              <th scope="row">1</th>
-              <td></td>
-              <td><a href="#1"><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a>  <a href="#2"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
+              <th scope="row"><?php echo $item['idDepense'];?></th>
+              <td><?php echo $item['description'];?></td>
+              <td><a href="../traitements/supprimer-depense.php?numero=<?php echo $item['idDepense'];?>"><button style="background-color:red" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></button></a>  <a href="../traitements/modifier-depense.php?numero=<?php echo $item['idDepense'];?>"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a></td>
             </tr>
-            
+            <?php
+              }
+              ?>
           </tbody>
         </table>
       </div>
