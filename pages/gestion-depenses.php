@@ -41,6 +41,7 @@
                 <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion dépenses</a></li>
                 <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
+                <li role="presentation"><a href="configuration-mois.html">Configuration mois</a></li>
             </ul>
         </center>
     </div>
