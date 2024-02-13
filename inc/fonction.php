@@ -495,7 +495,7 @@
         $row = mysqli_fetch_assoc($result);
     
         // Fermeture de la connexion à la base de données
-        mysqli_close($conn);
+        // mysqli_close($conn);
     
         // Retour du coût total des dépenses
         return $row['total_depenses'];
@@ -632,14 +632,14 @@
 
         $salaireParKilo = getSalaire($idCueilleur)['montant'];
 
-        if ($poids_total >= $min) {
+        if ($poidsTotal >= $min) {
             $normal = $poids_total*$salaireParKilo;
-            $bonnification = ((($poids_total - $min)*$salaireParKilo)*$bonus)/100;
+            $bonnification = (($poidsTotal - $min)*$salaireParKilo)*$bonus/100;
             return ($normal + $bonnification);
         }
         else {
             $salaireParKilo = $salaireParKilo - ($salaireParKilo*$mallus/100);
-            return $salaireParKilo*$poids_total;   
+            return $salaireParKilo*$poidsTotal;   
         }
     }
 
@@ -715,5 +715,59 @@
         }
         return $valiny;
     }
+
+    function getMontantVentes($dateDebut, $dateFin) {
+        // Connexion à la base de données
+        $conn = Connect();
+    
+        // Requête SQL pour récupérer le montant total des ventes effectuées entre les deux dates
+        $sql = "SELECT SUM(c.poids * p.montant) AS montant_total
+        FROM cueillette c
+        JOIN parcelle par ON par.numero = c.numeroParcelle
+        Join prixVente p on par.idThe = p.idThe
+        WHERE c.dateCueillette BETWEEN '$dateDebut' AND '$dateFin'";
+    
+        // Exécution de la requête
+        $result = mysqli_query($conn, $sql);
+    
+        // Vérification s'il y a des résultats
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Récupération du montant total des ventes
+            $row = mysqli_fetch_assoc($result);
+            $montant_total = $row['montant_total'];
+        } else {
+            // Aucune vente effectuée entre les deux dates
+            $montant_total = 0;
+        }
+    
+        return $montant_total;
+    }
+
+    function getMontantDepenses($dateDebut, $dateFin) {
+        // Connexion à la base de données
+        $conn = Connect();
+    
+        // Requête SQL pour récupérer le montant total des dépenses entre les deux dates
+        $sql = "SELECT SUM(montant) AS montant_total
+                FROM listeDepense
+                WHERE date BETWEEN '$dateDebut' AND '$dateFin'";
+    
+        // Exécution de la requête
+        $result = mysqli_query($conn, $sql);
+    
+        // Vérification s'il y a des résultats
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Récupération du montant total des dépenses
+            $row = mysqli_fetch_assoc($result);
+            $montant_total = $row['montant_total'];
+        } else {
+            // Aucune dépense enregistrée entre les deux dates
+            $montant_total = 0;
+        }
+    
+        return $montant_total;
+    }
+    
+    
 
 ?>

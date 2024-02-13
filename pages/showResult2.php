@@ -1,3 +1,12 @@
+<?php
+include_once '../inc/fonction.php';
+  $poids_total_cueillette = getPoidsTotal2dates($_POST['dateDebut'], $_POST['dateFin']);
+  $poids_restant_fin = getPoidsRestant($_POST['dateDebut'], $_POST['dateFin']);
+  $revient = getCoutRevientGlobalParKg($_POST['dateDebut'], $_POST['dateFin']);
+  $ventes = getMontantVentes($_POST['dateDebut'], $_POST['dateFin']);
+  $depense = getMontantDepenses($_POST['dateDebut'], $_POST['dateFin']);
+  $benefice = $ventes - $depense;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +47,7 @@
                     <li role="presentation"><a href="formResult.php">Résultats</a></li>
                     <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
                     <li role="presentation" class="active1"><a href="formResult2.php">Montant & Bénéfice</a></li>
+                    <li role="presentation"><a href="prevision.php">Prévision</a></li>
                 </ul>
             </center>
         </div>
@@ -51,19 +61,22 @@
                     <th>Poids total cueillette</th>
                     <th>Poids restants</th>
                     <th>Montant des ventes</th>
-                    <th>Montant des dépenses</th>
-                    <th>Bénéfice</th>
+                    <th>Montant des depenses</th>
+                    <th>Benefice</th>
                     <th>Coût de revient/kg</th>
                   </tr>
                 </thead>
                 <tbody>
+                
                   <tr>
-                    <td>69 kg</td>
-                    <td>33 kg</td>
-                    <td>69000 ar</td>
-                    <td>45000 ar</td>
-                    <td>26000 ar</td>
-                    <td>2000 ar/kg</td>
+                  <tr>
+                    <td><?php echo $poids_total_cueillette;?> kg</td>
+                    <td><?php echo $poids_restant_fin;?> kg</td>
+                    <td><?php echo $ventes;?> euros</td>
+                    <td><?php echo $depense;?> euros</td>
+                    <td><?php echo $benefice;?> euros</td>
+                    <td><?php echo $revient;?> euros</td>
+                  </tr>
                   </tr>
                 </tbody>
               </table>

@@ -3,6 +3,9 @@
   $poids_total_cueillette = getPoidsTotal2dates($_POST['dateDebut'], $_POST['dateFin']);
   $poids_restant_fin = getPoidsRestant($_POST['dateDebut'], $_POST['dateFin']);
   $revient = getCoutRevientGlobalParKg($_POST['dateDebut'], $_POST['dateFin']);
+  $ventes = getMontantVentes($_POST['dateDebut'], $_POST['dateFin']);
+  $depense = getMontantDepenses($_POST['dateDebut'], $_POST['dateFin']);
+  $benefice = $ventes - $depense;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +65,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?php echo $poids_total_cueillette;?></td>
+                    <td><?php echo $poids_total_cueillette;?> kg</td>
                     <td><?php echo $poids_restant_fin;?> kg</td>
-                    <td><?php echo $revient;?></td>
+                    <td><?php echo $revient;?> euros</td>
                   </tr>
                 </tbody>
               </table>
