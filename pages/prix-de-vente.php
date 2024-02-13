@@ -1,3 +1,8 @@
+<?php
+  include_once('../inc/fonction.php');
+  $liste=getThe();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,13 +53,14 @@
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Configuration prix de vente</h2>
-              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; " id="formulaire">
+              <form class="form-horizontal" action="../traitements/insert-prix-vente.php" method="post" style="margin-top: 50px; " id="formulaire">
                 <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Variété</label>
                     <div class="col-sm-10 col-lg-4">
                         <select name="variete" id="" class="form-control">
-                            <option value="">Variété 1</option>
-                            <option value="">Variété 2</option>
+                            <?php for ($i=0; $i <count($liste) ; $i++) { ?>
+                              <option value="<?php echo($liste[$i]['idThe']) ?>"><?php echo($liste[$i]['nom']); ?></option>
+                           <?php } ?>
                         </select>
                     </div>
                 </div>
