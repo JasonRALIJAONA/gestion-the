@@ -1,14 +1,9 @@
-<?php
-    include_once("../inc/fonction.php");
-    $liste=listDepense();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depenses</title>
+    <title>formTraitement</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/accueil.css" rel="stylesheet">
 
@@ -36,51 +31,38 @@
     <div class="row">
         <div class="col-lg-3" style="height: 800px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;margin-top: -20px;color: white;">
             <center style="margin-top:50px;">
-                <ul class="nav nav-pills nav-stacked">   
-                <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
+                <ul class="nav nav-pills nav-stacked"> 
+                    <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
                     <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
-                    <li role="presentation" class="active1"><a href="">Dépenses</a></li>
+                    <li role="presentation"><a href="saisie-depenses.html">Dépenses</a></li>
                     <li role="presentation"><a href="formResult.html">Résultats</a></li>
-                    <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
+                    <li role="presentation" class="active1"><a href="#">Paiements</a></li>
                 </ul>
             </center>
         </div>
         <div class="col-lg-9" style="height: 800px;margin-top: -20px;">
         <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>DI-T</h1></center></div>
         <center>
-            <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-                <h2>Dépenses</h2>
-                <form class="form-horizontal" action="../traitements/traite-depense.php" method="post" style="margin-top: 50px; ">
+            <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
+                <h2>Paiements</h2>
+                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label col-lg-4">Date</label>
+                        <label class="col-sm-2 control-label col-lg-4">Date début</label>
                         <div class="col-sm-10 col-lg-4">
-                        <input id="" type="date" name="date" placeholder="date" class="form-control">
+                        <input id="" type="date" name="dateDebut" placeholder="date" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label col-lg-4">Dépenses</label>
+                        <label class="col-sm-2 control-label col-lg-4">Date fin</label>
                         <div class="col-sm-10 col-lg-4">
-                            <select name="depense" class="form-control" id="">
-                                <?php for ($i=0; $i <count($liste) ; $i++) { ?>
-                                    <option value="<?php echo $liste[$i]['idDepense']; ?>"><?php echo $liste[$i]['description']; ?></option>
-                               <?php } ?>
-                            </select>
+                        <input id="" type="date" name="dateFin" placeholder="date" class="form-control">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label col-lg-4">Montant</label>
-                        <div class="col-sm-10 col-lg-4">
-                        <input id="" type="number" name="montant" placeholder="montant" class="form-control">
-                        </div>
-                    </div>                 
+                    </div>                  
                     <div class="form-group" style="
                         margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary">Valider</button>
+                        <button type="submit" class="btn btn-primary">Voir liste des paiements</button>
                     </div>
                     </form>
-                    <?php if (isset($_GET['resultat'])) { ?>
-                        <p style="color:blue;">Depense insere</p>
-                    <?php } ?>
                 </div>
         </center>
         </div>

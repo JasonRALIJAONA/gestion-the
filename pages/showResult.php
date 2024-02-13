@@ -42,6 +42,7 @@
                     <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
                     <li role="presentation"><a href="saisie-depenses.html">Dépenses</a></li>
                     <li role="presentation" class="active1"><a href="#">Résultats</a></li>
+                    <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
                 </ul>
             </center>
         </div>
