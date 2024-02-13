@@ -56,7 +56,8 @@
             <table class="table table-hover">
                 <thead>
                   <tr style="background-color: rgb(129, 243, 87);">
-                    <th>Date</th>
+                    <th>Date debut</th>
+                    <th>Date fin</th>
                     <th>Nom cueilleur</th>
                     <th>Poids</th>
                     <th>%Bonus</th>
@@ -67,12 +68,13 @@
                 <tbody>
                   <?php for ($i=0; $i <count($resultat) ; $i++) { ?> 
                     <tr style="background-color: rgb(129, 243, 87);">
-                    <td><?php echo (); ?></td>
-                    <td><?php echo(); ?></td>
-                    <td><?php echo(); ?></td>
-                    <td><?php echo(); ?></td>
-                    <td><?php echo(); ?></td>
-                    <td><?php echo(); ?></td>
+                    <td><?php echo ($resultat[$i]['dateDebut']); ?></td>
+                    <td><?php echo ($resultat[$i]['dateFin']); ?></td>
+                    <td><?php echo ($resultat[$i]['nomCueilleur']); ?></td>
+                    <td><?php echo ($resultat[$i]['poids']); ?></td>
+                    <td><?php echo ($resultat[$i]['bonus']); ?></td>
+                    <td><?php echo ($resultat[$i]['mallus']); ?></td>
+                    <td><?php echo ($resultat[$i]['montantPaiement']); ?></td>
                   </tr>
                  <?php } ?>
                 </tbody>
