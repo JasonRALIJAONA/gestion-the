@@ -382,9 +382,24 @@
     {
         return getPoidsInitial($numero) - getPoidsTotal($date, $numero);
     }
+    
+    function getPoidsTotal2dates($dateDebut, $dateFin, $idParcelle) {
+        // Récupérer toutes les cueillettes entre les deux dates spécifiées
+        $conn = Connect();
+        $sql = "SELECT SUM(poids) AS total_poids
+                FROM cueillette
+                WHERE numeroParcelle = ? 
+                AND dateCueillette BETWEEN ? AND ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "iss", $idParcelle, $dateDebut, $dateFin);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
 
-    function getPoidsTotal2dates($dateDebut, $dateFin, $idParcelle)
-    {
-        
+        // Retourner le poids total
+        return $row['total_poids'];
     }
+
 ?>
