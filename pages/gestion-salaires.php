@@ -44,8 +44,8 @@
                 <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion salaire</a></li>
                 <li role="presentation"><a href="configuration-mois.html">Configuration mois</a></li>
-                <li role="presentation"><a href="configuration-cueilleur.html">Configuration cueilleur</a></li>
-                <li role="presentation"><a href="prix-de-vente.html">Prix de vente</a></li>
+                <li role="presentation"><a href="configuration-cueilleur.php">Configuration cueilleur</a></li>
+                <li role="presentation"><a href="prix-de-vente.php">Prix de vente</a></li>
             </ul>
         </center>
     </div>

@@ -71,3 +71,9 @@ create table config(
     bonus decimal(10,2),
     mallus decimal(10,2)
 )ENGINE=InnoDB;
+
+create table prixVente(
+    idThe SMALLINT,
+    montant decimal(10,2)
+)ENGINE=InnoDB;
+alter table prixVente add FOREIGN KEY(idThe) references the(idThe);
