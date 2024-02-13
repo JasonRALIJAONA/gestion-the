@@ -534,4 +534,11 @@
         // mysqli_close($conn);
         return $row;
     }
+
+    function insertPrixVente($idThe, $montant)
+    {
+        $conn = Connect();
+        $sql = "insert into prixVente(idThe, montant) values($idThe, $montant)";
+        mysqli_query($conn, $sql);
+    }
 ?>
