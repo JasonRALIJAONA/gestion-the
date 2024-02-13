@@ -1,13 +1,9 @@
-<?php
-  include_once '../inc/fonction.php';
-  $config = getConfig();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cueilleur</title>
+    <title>Prix de vente</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <script src="../js/gestionCueilleur.js"></script>
 
@@ -42,36 +38,33 @@
                 <li role="presentation"><a href="gestion-depenses.php">Gestion dépenses</a></li>
                 <li role="presentation"><a href="gestion-salaires.php">Gestion salaire</a></li>
                 <li role="presentation"><a href="configuration-mois.html">Configuration mois</a></li>
-                <li role="presentation" class="active"><a href="#">Configuration cueilleur</a></li>
-                <li role="presentation"><a href="prix-de-vente.html">Prix de vente</a></li>
+                <li role="presentation"><a href="configuration-cueilleur.html">Configuration cueilleur</a></li>
+                <li role="presentation" class="active"><a href="#">Prix de vente</a></li>
             </ul>
         </center>
     </div>
     <div class="col-lg-9" style="height: 950px;margin-top: -20px;">
-    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Configuration cueilleur</h1></center></div>
+    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Prix de vente</h1></center></div>
       <center>
-          <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-              <h2>Configuration cueilleur</h2>
-              <form class="form-horizontal" action="../traitements/insertion-config.php" method="post" style="margin-top: 50px; " id="formulaire">
+          <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
+              <h2>Configuration prix de vente</h2>
+              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; " id="formulaire">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Poids minimal journalier</label>
+                    <label class="col-sm-2 control-label col-lg-4">Variété</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="poidsMin" placeholder="Poids" class="form-control" value="<?php echo $config['minimum'];?>">
+                        <select name="variete" id="" class="form-control">
+                            <option value="">Variété 1</option>
+                            <option value="">Variété 2</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Bonus</label>
+                    <label class="col-sm-2 control-label col-lg-4">Prix de vente</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="bonus" placeholder="% de bonus" class="form-control" value="<?php echo $config['bonus'];?>">
+                    <input id="" type="number" name="prixVente" placeholder="Prix de vente" class="form-control">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Mallus</label>
-                    <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="mallus" placeholder="% de malus" class="form-control" value="<?php echo $config['mallus'];?>">
-                    </div>
-                </div>
-                <div class="form-group"> 
+               <div class="form-group"> 
                     <button class="btn btn-primary">Valider</button>
                 </div>
                 </div>
