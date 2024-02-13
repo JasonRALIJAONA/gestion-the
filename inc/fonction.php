@@ -382,4 +382,9 @@
     {
         return getPoidsInitial($numero) - getPoidsTotal($date, $numero);
     }
+
+    function getPoidsTotal2dates($dateDebut, $dateFin, $idParcelle)
+    {
+        
+    }
 ?>
