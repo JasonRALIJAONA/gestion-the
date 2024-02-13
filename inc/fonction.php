@@ -114,6 +114,59 @@
 
     }
 
+    function listParcelle($date)
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM parcelle";
+        $result = mysqli_query($conn, $sql);
+
+        $parcelles = array(); // Initialisation du tableau des parcelles
+        while ($row = mysqli_fetch_assoc($result)) {
+            $parcelles[] = $row; // Ajout de chaque ligne de résultat au tableau des parcelles
+        }
+        for ($i=0; $i < count($parcelles); $i++) { 
+            $parcelles[$i]['nbPied'] = getNbPieds($parcelles[$i]['numero']);
+            $parcelles[$i]['poids'] = getPoidsActu($date, $parcelles[$i]['numero']);
+            $parcelles[$i]['nomThe'] = getThe($parcelles[$i]['idThe'])['nom'];
+        }
+        // mysqli_close($conn);
+        return $parcelles; // Retourner le tableau contenant toutes les parcelles
+
+    }
+    
+    function getNbPieds($numeroParcelle) {
+        // Connexion à la base de données
+        $conn = Connect();
+    
+        // Requête SQL pour récupérer la surface et l'occupation de la parcelle donnée
+        $sql = "SELECT p.surface, t.occupation FROM parcelle p
+                INNER JOIN the t ON p.idThe = t.idThe
+                WHERE p.numero = $numeroParcelle";
+    
+        // Exécution de la requête
+        $result = mysqli_query($conn, $sql);
+    
+        // Vérification s'il y a des résultats
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Récupération de la surface et de l'occupation de la parcelle
+            $row = mysqli_fetch_assoc($result);
+            $surface = $row['surface'];
+            $occupation = $row['occupation'];
+    
+            // Calcul du nombre de pieds sur la parcelle
+            $nbPieds = $surface / $occupation;
+    
+            // Arrondir le résultat à un entier
+            $nbPiedsArrondi = round($nbPieds);
+    
+            // Retourner le nombre de pieds
+            return $nbPiedsArrondi;
+        } else {
+            // Si la parcelle n'est pas trouvée, retourner -1 pour indiquer une erreur
+            return -1;
+        }
+    }
+
     function updateParcelle($numero, $surface, $idThe)
     {
         $conn = Connect();
