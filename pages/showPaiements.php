@@ -1,3 +1,11 @@
+<?php
+  include_once('../inc/fonction.php');
+
+  $debut=$_POST['dateDebut'];
+  $fin=$_POST['fin'];
+  $resultat=listPaiement($debut,$fin);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +30,7 @@
       <a style="font-family: 'Bauhaus 93';margin-left:10px;" class="navbar-brand" href="#">DI-T</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Se déconnecter</a></li>
+        <li><a href="../index.html">Se déconnecter</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -49,7 +57,8 @@
             <table class="table table-hover">
                 <thead>
                   <tr style="background-color: rgb(129, 243, 87);">
-                    <th>Date</th>
+                    <th>Date debut</th>
+                    <th>Date fin</th>
                     <th>Nom cueilleur</th>
                     <th>Poids</th>
                     <th>%Bonus</th>
@@ -58,15 +67,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>2024-02-13</td>
-                    <td>Onitsoa</td>
-                    <td>69 kg</td>
-                    <td>69 %</td>
-                    <td>5 %</td>*
-                    <td>69000 ar</td>
-                    
+                  <?php for ($i=0; $i <count($resultat) ; $i++) { ?> 
+                    <tr style="background-color: rgb(129, 243, 87);">
+                    <td><?php echo ($resultat[$i]['dateDebut']); ?></td>
+                    <td><?php echo ($resultat[$i]['dateFin']); ?></td>
+                    <td><?php echo ($resultat[$i]['nomCueilleur']); ?></td>
+                    <td><?php echo ($resultat[$i]['poids']); ?></td>
+                    <td><?php echo ($resultat[$i]['bonus']); ?></td>
+                    <td><?php echo ($resultat[$i]['mallus']); ?></td>
+                    <td><?php echo ($resultat[$i]['montantPaiement']); ?></td>
                   </tr>
+                 <?php } ?>
                 </tbody>
               </table>
         </center>
