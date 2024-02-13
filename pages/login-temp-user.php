@@ -43,14 +43,14 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-right">E-Mail</label>
                                 <div class="col-sm-8 col-lg-7">
-                                    <input type="text" name="email" placeholder="E-Mail" class="form-control" value="user@gmail.com">
+                                    <input type="text" name="email" placeholder="E-Mail" class="form-control" value="Bob@gmail.com">
                                 </div>
                             </div>
                             <br>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-right">Mot de passe</label>
                                 <div class="col-sm-8 col-lg-7">
-                                    <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="user01">
+                                    <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="bob01">
                                 </div>
                             </div>
                             <?php if (isset($_GET['error'])) { ?>
