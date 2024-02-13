@@ -22,7 +22,7 @@
       <a style="font-family: 'Bauhaus 93';margin-left:10px;" class="navbar-brand" href="#">DI-T</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Se déconnecter</a></li>
+        <li><a href="../index.html">Se déconnecter</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -45,7 +45,7 @@
         <center>
             <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
                 <h2>Paiements</h2>
-                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+                <form class="form-horizontal" action="showPaiements.php" method="post" style="margin-top: 50px; ">
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Date début</label>
                         <div class="col-sm-10 col-lg-4">
