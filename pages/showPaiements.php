@@ -2,7 +2,7 @@
   include_once('../inc/fonction.php');
 
   $debut=$_POST['dateDebut'];
-  $fin=$_POST['fin'];
+  $fin=$_POST['dateFin'];
   $resultat=listPaiement($debut,$fin);
 ?>
 

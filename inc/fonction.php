@@ -678,7 +678,7 @@
         // Boucler à travers chaque jour de cueillette entre les dates spécifiées
         $dateActuelle = $dateDebut;
         while ($dateActuelle <= $dateFin) {
-            $poids = getPoidsTotalCueilli($date, $idCueilleur);
+            $poids = getPoidsTotalCueilli($dateActuelle, $idCueilleur);
 
             // Ajouter le montant du paiement au montant total pour ce cueilleur
             $poidsTotal += $poids;
