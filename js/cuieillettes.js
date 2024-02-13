@@ -175,6 +175,14 @@ function creeSelectParcelle()
    xhr.send(null); 
 }
 
+function setRestant(chiffre) {
+  var restant=document.getElementById("restant");
+  restant.innerHTML="Poids restant: "+chiffre;
+
+  var poids=document.getElementById(poids);
+  poids.max=chiffre;
+}
+
 function auto() {
     var xhr; 
     try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
@@ -194,7 +202,7 @@ function auto() {
         if(xhr.status  == 200) {
             var retour = JSON.parse(xhr.responseText);
             var suggestion=productName(retour);
-            autoList(suggestion);
+            setRestant(suggestion);
         } else {
             document.dyn="Error code " + xhr.status;
         }
@@ -202,9 +210,10 @@ function auto() {
   
     };
     
-  var idCategorie=document.getElementById("categorieId").value;
+  var idParcelle=document.getElementById("selection-parcelle").value;
+  var dateCueillette=document.getElementById("date").value;
   //XMLHttpRequest.open(method, url, async)
-   xhr.open("GET", "inc/listeProduitFiltre.php?idCat="+idCategorie,  true); 
+   xhr.open("GET", "../traitements/poids-restant.php?idParcelle="+idParcelle+"&date="+dateCueillette,  true); 
    
    //XMLHttpRequest.send(body)
    xhr.send();  

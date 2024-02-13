@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Date</label>
                         <div class="col-sm-10 col-lg-4">
-                        <input id="" type="date" name="date" placeholder="date" class="form-control">
+                        <input id="date" type="date" name="date" placeholder="date" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -69,16 +69,17 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Parcelles</label>
                         <div class="col-sm-10 col-lg-4">
-                            <select name="parcelles" class="form-control" id="selection-parcelle">
+                            <select name="parcelles" class="form-control" id="selection-parcelle" onchange="auto()">
                                 <option value="" >Parcelles 1</option>
                                 <option value="" >Parcelles 2</option>
                             </select>
                         </div>
                     </div>
+                    <p style="color: red;" id="restant">Poids restant</p>
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Poids</label>
                         <div class="col-sm-10 col-lg-4">
-                        <input id="" type="number" name="poids" placeholder="Poids" class="form-control">
+                        <input id="poids" type="number" name="poids" placeholder="Poids" class="form-control">
                         </div>
                     </div>                 
                     <div class="form-group" style="
