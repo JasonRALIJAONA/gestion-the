@@ -1,6 +1,6 @@
 <?php
   include_once('../inc/fonction.php');
-  $liste=getThe();
+  $liste=listThe();
 ?>
 
 <!DOCTYPE html>
