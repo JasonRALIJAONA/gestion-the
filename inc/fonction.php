@@ -424,7 +424,7 @@
         return $row['total_poids'];
     }
 
-    function getPoidsRestant($dateFin) {
+    function getPoidsRestantTab($datedebut, $dateFin) {
         // Initialiser un tableau pour stocker les poids restants sur chaque parcelle
         $poidsRestants = array();
     
@@ -437,7 +437,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $idParcelle = $row['numero'];
             $surfaceParcelle = $row['surface'];
-            $poidsTotalCueilli = getPoidsTotal($dateFin, $idParcelle);
+            $poidsTotalCueilli = getPoidsTotal2datesParcelle($dateDebut, $dateFin, $idParcelle);
             $poidsRestant = $surfaceParcelle - $poidsTotalCueilli;
             $poidsRestants[$idParcelle] = $poidsRestant;
         }
@@ -446,6 +446,22 @@
     
         // Retourner le tableau des poids restants sur chaque parcelle
         return $poidsRestants;
+    }
+
+    function getPoidsRestant($dateDebut, $dateFin) {
+        // Obtenir les poids restants sur chaque parcelle
+        $poidsRestants = getPoidsRestantTab($dateDebut, $dateFin);
+    
+        // Initialiser la variable pour le poids total
+        $totalPoidsRestants = 0;
+    
+        // Itérer à travers les poids restants sur chaque parcelle et les ajouter au total
+        foreach ($poidsRestants as $poidsRestant) {
+            $totalPoidsRestants += $poidsRestant;
+        }
+    
+        // Retourner le poids total restant sur toutes les parcelles
+        return $totalPoidsRestants;
     }
 
     function getCoutRevientGlobalParKg($dateDebut, $dateFin) {

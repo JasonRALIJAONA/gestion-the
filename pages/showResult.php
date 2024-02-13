@@ -1,3 +1,9 @@
+<?php
+  include_once '../inc/fonction.php';
+  $poids_total_cueillette = getPoidsTotal2dates($_POST['dateDebut'], $_POST['dateFin']);
+  $poids_restant_fin = getPoidsRestant($_POST['dateDebut'], $_POST['dateFin']);
+  $revient = getCoutRevientGlobalParKg($_POST['dateDebut'], $_POST['dateFin']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +51,6 @@
             <table class="table table-hover">
                 <thead>
                   <tr style="background-color: rgb(129, 243, 87);">
-                    <th>#Parcelle</th>
                     <th>Poids total cueillette</th>
                     <th>Poids restants</th>
                     <th>Coût de revient/kg</th>
@@ -53,10 +58,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>69 kg</td>
-                    <td>33 kg</td>
-                    <td>690000 ar</td>
+                    <td><?php echo $poids_total_cueillette;?></td>
+                    <td><?php echo $poids_restant_fin;?> kg</td>
+                    <td><?php echo $revient;?></td>
                   </tr>
                 </tbody>
               </table>
