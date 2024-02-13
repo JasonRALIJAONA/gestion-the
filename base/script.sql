@@ -61,3 +61,7 @@ CREATE TABLE listeDepense (
     montant decimal(10,2)
 ) ENGINE=InnoDB;
 alter table listeDepense add FOREIGN KEY(idDepense) references depense(idDepense);
+
+CREATE TABLE saison (
+    idMois SMALLINT
+)ENGINE=InnoDB;

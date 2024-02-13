@@ -501,4 +501,16 @@
         return $row['total_depenses'];
     }
 
+    function deleteMois(){
+        $conn = Connect();
+        $sql = "delete from saison";
+        mysqli_query($conn, $sql);
+    }
+
+    function insertMois($idMois){
+        $conn = Connect();
+        $sql = "insert into saison(idMois) values ($idMois)";
+        mysqli_query($conn, $sql);
+    }
+
 ?>
