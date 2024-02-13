@@ -6,7 +6,12 @@
     <title>Prévision</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/accueil.css" rel="stylesheet">
+    <script src="../js/prevision.js"></script>
 </head>
+
+<script>
+  connexion();
+</script>
 <body style="background-color:#e7e7e7;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -47,7 +52,7 @@
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 250px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Insertion date</h2>
 
-              <form class="form-horizontal" action="../traitements/.php" method="post" style="margin-top: 50px; ">
+              <form class="form-horizontal" action="../traitements/.php" method="post" style="margin-top: 50px; " id="formulaire">
                   <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Date</label>
                       <div class="col-sm-10 col-lg-5">
@@ -61,10 +66,10 @@
           </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
-      <h3>Poids total thé restant: 69 kg</h3>
+      <h3 id="restant">Poids total thé restant: 69 kg</h3>
       <h3>Montant: 1459000 ar</h3>
       <div style="height: 500px;overflow: scroll;" id="resultat">
-        <div class="row">
+        <div class="row" id="contient">
                         <div class="col-sm-6 col-md-4">
                           <div class="thumbnail parcelles" style="padding-left: 20px;padding-right: 20px;">
                             <p>PARCELLE #1</p>

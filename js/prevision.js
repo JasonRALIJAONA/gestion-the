@@ -64,7 +64,8 @@ function connexion() {
 }
 
 function displayPrevision(tab) {
-    var resultat=document.getElementsByTagName("row")[0];
+    var resultat=document.getElementById("contient");
+    console.log(resultat);
     if (resultat.hasChildNodes()) {
         while (resultat.firstChild) {
           resultat.removeChild(resultat.firstChild);
@@ -116,7 +117,51 @@ function displayPrevision(tab) {
         thumbnail.appendChild(caption);
 
         tempDiv.appendChild(thumbnail);
-        resultat.appendChild(tempDiv)
+        resultat.appendChild(tempDiv);
     });
 
+    var big=document.getElementById("resultat");
+    if (big.hasChildNodes()) {
+        while (big.firstChild) {
+          big.removeChild(big.firstChild);
+        }  
+    }
+
+    big.appendChild(resultat);
+
+}
+
+function displayRestant()
+{ 
+    var xhr; 
+    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
+    catch (e) 
+    {
+        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP'); }
+        catch (e2) 
+        {
+           try {  xhr = new XMLHttpRequest();  }
+           catch (e3) {  xhr = false;   }
+         }
+    }
+  
+    xhr.onreadystatechange  = function() 
+    { 
+       if(xhr.readyState  == 4){
+        if(xhr.status  == 200) {
+            var retour = JSON.parse(xhr.responseText);
+            
+            var restant=document.getElementById("restant");
+            restant.innerHTML="Poids total thé restant :"+retour;
+        } else {
+            document.dyn="Error code " + xhr.status;
+        }
+		}
+
+    }; 
+  //XMLHttpRequest.open(method, url, async)
+   xhr.open("GET", "../traitements/get-total-restant.php",  true); 
+   
+   //XMLHttpRequest.send(body)
+   xhr.send(null); 
 }
