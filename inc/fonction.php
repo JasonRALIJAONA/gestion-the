@@ -541,4 +541,10 @@
         $sql = "insert into prixVente(idThe, montant) values($idThe, $montant)";
         mysqli_query($conn, $sql);
     }
+
+    function deletePrixVente($idThe){
+        $conn = Connect();
+        $sql = "delete from prixVente where idThe=$idThe";
+        mysqli_query($conn, $sql);
+    }
 ?>
