@@ -279,7 +279,67 @@
         mysqli_query($conn, $sql);
     }
 
-    function getPoids($numeroParcelle) {
+    
+    function getAllCueillette($date, $idParcelle) {
+        // Connexion à la base de données
+        $conn = Connect();
+
+        // Déterminer le premier jour du mois de la date spécifiée
+        $firstDayOfMonth = date('Y-m-01', strtotime($date));
+
+        // Requête SQL pour obtenir toutes les cueillettes entre le 1er du mois et la date spécifiée pour la parcelle donnée
+        $sql = "SELECT *
+                FROM cueillette
+                WHERE numeroParcelle = ? 
+                AND dateCueillette BETWEEN ? AND ?";
+            
+        // Préparation de la requête
+        $stmt = mysqli_prepare($conn, $sql);
+
+        // Liaison des paramètres
+        mysqli_stmt_bind_param($stmt, "iss", $idParcelle, $firstDayOfMonth, $date);
+
+        // Exécution de la requête
+        mysqli_stmt_execute($stmt);
+
+        // Récupération des résultats
+        $result = mysqli_stmt_get_result($stmt);
+        
+        // Création d'un tableau pour stocker les cueillettes
+        $cueillettes = [];
+
+        // Parcourir les résultats et les ajouter au tableau
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cueillettes[] = $row;
+        }
+
+        // Fermeture de la requête
+        mysqli_stmt_close($stmt);
+
+        // Fermeture de la connexion
+        mysqli_close($conn);
+
+        // Retourner le tableau de cueillettes
+        return $cueillettes;
+    }
+
+    function getPoidsTotal($date, $idParcelle) {
+        // Récupérer toutes les cueillettes entre le 1er du mois et la date spécifiée
+        $cueillettes = getAllCueillette($date, $idParcelle);
+    
+        // Initialiser le poids total à zéro
+        $totalWeight = 0;
+    
+        // Parcourir toutes les cueillettes et ajouter leur poids au total
+        foreach ($cueillettes as $cueillette) {
+            $totalWeight += $cueillette['poids'];
+        }
+    
+        // Retourner le poids total
+        return $totalWeight;
+    }
+
+    function getPoidsInitial($numeroParcelle) {
         // Connexion à la base de données
         $conn = Connect();
 
@@ -317,4 +377,9 @@
             // Retourner le poids restant en kg
             return $poids_restant_kg;
         }
+
+    function getPoidsActu($date, $numero)
+    {
+        return getPoidsInitial($numero) - getPoidsTotal($date, $numero);
+    }
 ?>
