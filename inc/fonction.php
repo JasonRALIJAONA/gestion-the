@@ -114,7 +114,7 @@
 
     }
 
-    function listParcelle($date)
+    function listParcelleAvecDate($date)
     {
         $conn = Connect();
         $sql = "SELECT * FROM parcelle";
