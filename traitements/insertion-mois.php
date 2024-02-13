@@ -10,6 +10,6 @@ if (isset($_POST['mois'])) {
 } else {
     echo "Aucun mois sélectionné.";
 }
-header('Location:../pages/configuration-mois.php');
+header('Location:../pages/configuration-mois.html');
 
 ?>
