@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Index</title>
-        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../assets/css/styles.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -28,7 +28,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/login-temp-user.php">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,37 +38,13 @@
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">LOGIN</h1>
-                        <form class="form-horizontal" action="../traitements/traite-login-user.php" method="post" style="margin-top: 50px;">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-lg-3 col-form-label text-right">E-Mail</label>
-                                <div class="col-sm-8 col-lg-7">
-                                    <input type="text" name="email" placeholder="E-Mail" class="form-control" value="Bob@gmail.com">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-lg-3 col-form-label text-right">Mot de passe</label>
-                                <div class="col-sm-8 col-lg-7">
-                                    <input type="password" name="mdp" placeholder="Mot de passe" class="form-control" value="bob01">
-                                </div>
-                            </div>
-                            <?php if (isset($_GET['error'])) { ?>
-                                <p style="color:red"><?php echo($_GET['error']); ?></p>
-                            <?php } ?>
-                            <p style="margin-top: 20px;"><a href="login-temp-admin.php">Se connecter en tant qu'administrateur?</a></p>
-                            <div class="form-group row">
-                                <div class="col-sm-12 col-lg-8 offset-sm-4 offset-lg-2">
-                                    <button style="margin-top: 20px;" type="submit" class="btn btn-primary">Se connecter</button>
-                                </div>
-                            </div>
-                        </form>
+                        <h1 class="mx-auto my-0 text-uppercase">DI-T</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Bienvenue dans notre paradis du thé, où chaque infusion raconte une histoire, chaque feuille danse avec des arômes envoûtants et chaque gorgée vous transporte vers des contrées lointaines. Chez nous, le thé n'est pas simplement une boisson, c'est une expérience sensorielle, une invitation à la détente et à la découverte.</h2>
+                        <a class="btn btn-primary" href="pages/login-temp-user.php">Se connecter</a>
                     </div>
+                </div>
             </div>
-    </div>
-</header>
-
-
+        </header>
         <!-- About-->
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
@@ -80,7 +56,7 @@
                         </p>
                     </div>
                 </div>
-                <img class="img-fluid" src="../assets/img/fondLogin.jpg" alt="..." />
+                <img class="img-fluid" src="assets/img/fondLogin.jpg" alt="..." />
             </div>
         </section>
         <!-- Projects-->
@@ -88,7 +64,7 @@
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="../assets/img/image-3.jpg" alt="..." /></div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/image-3.jpg" alt="..." /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>Shoreline</h4>
@@ -98,7 +74,7 @@
                 </div>
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="../assets/img/image-1.jpg" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/image-1.jpg" alt="..." /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -112,7 +88,7 @@
                 </div>
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="../assets/img/image-2.jpg" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/image-2.jpg" alt="..." /></div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
