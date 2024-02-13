@@ -38,6 +38,7 @@
                     <li role="presentation"><a href="formResult.html">Résultats</a></li>
                     <li role="presentation"  class="active1"><a href="formTraitement.php">Paiements</a></li>
                     <li role="presentation"><a href="formResult2.php">Montant & Bénéfice</a></li>
+                    <li role="presentation"><a href="prevision.php">Prévision</a></li>
                 </ul>
             </center>
         </div>
