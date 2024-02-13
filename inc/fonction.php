@@ -317,7 +317,7 @@
         mysqli_stmt_close($stmt);
 
         // Fermeture de la connexion
-        mysqli_close($conn);
+        // mysqli_close($conn);
 
         // Retourner le tableau de cueillettes
         return $cueillettes;
@@ -399,8 +399,6 @@
             $totalWeight += $poidsParcelle;
         }
 
-        mysqli_close($conn);
-
         // Retourner le poids total
         return $totalWeight;
     }
@@ -437,7 +435,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $idParcelle = $row['numero'];
             $surfaceParcelle = $row['surface'];
-            $poidsTotalCueilli = getPoidsTotal2datesParcelle($dateDebut, $dateFin, $idParcelle);
+            $poidsTotalCueilli = getPoidsTotal2datesParcelle($datedebut, $dateFin, $idParcelle);
             $poidsRestant = $surfaceParcelle - $poidsTotalCueilli;
             $poidsRestants[$idParcelle] = $poidsRestant;
         }
