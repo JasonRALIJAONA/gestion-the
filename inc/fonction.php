@@ -133,6 +133,18 @@
         return $parcelles; // Retourner le tableau contenant toutes les parcelles
 
     }
+
+    function getTotalRestant($date)
+    {
+        $val = 0;
+        $parcelles = listParcelle($date);
+        
+        for ($i=0; $i < count($parcelles); $i++) { 
+            $val += $parcelles[$i]['poids'];
+        }
+        return $val; 
+
+    }
     
     function getNbPieds($numeroParcelle) {
         // Connexion à la base de données
