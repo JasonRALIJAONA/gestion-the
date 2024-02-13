@@ -1,3 +1,7 @@
+<?php
+  include_once '../inc/fonction.php';
+  $config = getConfig();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,23 +51,23 @@
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
               <h2>Configuration cueilleur</h2>
-              <form class="form-horizontal" action="" method="post" style="margin-top: 50px; " id="formulaire">
+              <form class="form-horizontal" action="../traitements/insertion-config.php" method="post" style="margin-top: 50px; " id="formulaire">
                 <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Poids minimal journalier</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="poidsMin" placeholder="Poids" class="form-control">
+                    <input id="" type="number" name="poidsMin" placeholder="Poids" class="form-control" value="<?php echo $config['minimum'];?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label col-lg-4">Bonus</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="bonus" placeholder="% de bonus" class="form-control">
+                    <input id="" type="number" name="bonus" placeholder="% de bonus" class="form-control" value="<?php echo $config['bonus'];?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label col-lg-4">Malus</label>
+                    <label class="col-sm-2 control-label col-lg-4">Mallus</label>
                     <div class="col-sm-10 col-lg-4">
-                    <input id="" type="number" name="malus" placeholder="% de malus" class="form-control">
+                    <input id="" type="number" name="mallus" placeholder="% de malus" class="form-control" value="<?php echo $config['mallus'];?>">
                     </div>
                 </div>
                 <div class="form-group"> 

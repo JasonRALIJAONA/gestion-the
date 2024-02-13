@@ -513,4 +513,25 @@
         mysqli_query($conn, $sql);
     }
 
+    function deleteConfig(){
+        $conn = Connect();
+        $sql = "delete from config";
+        mysqli_query($conn, $sql);
+    }
+
+    function insertConfig($minimum, $bonus, $mallus){
+        $conn = Connect();
+        $sql = "insert into config(minimum, bonus, mallus) values ($minimum, $bonus, $mallus)";
+        mysqli_query($conn, $sql);
+    }
+
+    function getConfig()
+    {
+        $conn = Connect();
+        $sql = "SELECT * FROM config";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        // mysqli_close($conn);
+        return $row;
+    }
 ?>
