@@ -1,3 +1,9 @@
+<?php
+  include_once '../inc/fonction.php';
+  $poids_total_cueillette = getPoidsTotal2dates($_POST['dateDebut'], $_POST['dateFin']);
+  $poids_restant_fin = getPoidsRestant($_POST['dateDebut'], $_POST['dateFin']);
+  $revient = getCoutRevientGlobalParKg($_POST['dateDebut'], $_POST['dateFin']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +37,7 @@
     <div class="row">
         <div class="col-lg-3" style="height: 800px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;margin-top: -20px;color: white;">
             <center style="margin-top:50px;">
-                <ul class="nav nav-pills nav-stacked">
-                    <p style="margin-bottom:20px;"><span class="glyphicon glyphicon-user"></span>  Rakotoarimanana Nathan</p>    
+                <ul class="nav nav-pills nav-stacked">    
                     <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
                     <li role="presentation"><a href="saisie-depenses.html">Dépenses</a></li>
                     <li role="presentation" class="active1"><a href="#">Résultats</a></li>
@@ -46,7 +51,6 @@
             <table class="table table-hover">
                 <thead>
                   <tr style="background-color: rgb(129, 243, 87);">
-                    <th>#Parcelle</th>
                     <th>Poids total cueillette</th>
                     <th>Poids restants</th>
                     <th>Coût de revient/kg</th>
@@ -54,10 +58,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>69 kg</td>
-                    <td>33 kg</td>
-                    <td>690000 ar</td>
+                    <td><?php echo $poids_total_cueillette;?></td>
+                    <td><?php echo $poids_restant_fin;?> kg</td>
+                    <td><?php echo $revient;?></td>
                   </tr>
                 </tbody>
               </table>

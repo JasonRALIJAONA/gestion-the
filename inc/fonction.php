@@ -383,8 +383,30 @@
         return getPoidsInitial($numero) - getPoidsTotal($date, $numero);
     }
     
-    function getPoidsTotal2dates($dateDebut, $dateFin, $idParcelle) {
-        // Récupérer toutes les cueillettes entre les deux dates spécifiées
+    function getPoidsTotal2dates($dateDebut, $dateFin) {
+        // Initialiser le poids total à zéro
+        $totalWeight = 0;
+
+        // Récupérer toutes les parcelles
+        $conn = Connect();
+        $sql = "SELECT DISTINCT numero FROM parcelle";
+        $result = mysqli_query($conn, $sql);
+
+        // Pour chaque parcelle, ajouter le poids total des cueillettes entre les dates spécifiées
+        while ($row = mysqli_fetch_assoc($result)) {
+            $idParcelle = $row['numero'];
+            $poidsParcelle = getPoidsTotal2datesParcelle($dateDebut, $dateFin, $idParcelle);
+            $totalWeight += $poidsParcelle;
+        }
+
+        mysqli_close($conn);
+
+        // Retourner le poids total
+        return $totalWeight;
+    }
+
+    function getPoidsTotal2datesParcelle($dateDebut, $dateFin, $idParcelle) {
+        // Récupérer toutes les cueillettes entre les deux dates spécifiées pour une parcelle donnée
         $conn = Connect();
         $sql = "SELECT SUM(poids) AS total_poids
                 FROM cueillette
@@ -395,11 +417,70 @@
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
-        mysqli_stmt_close($stmt);
-        mysqli_close($conn);
+        // mysqli_stmt_close($stmt);
+        // mysqli_close($conn);
 
-        // Retourner le poids total
+        // Retourner le poids total pour la parcelle spécifiée
         return $row['total_poids'];
+    }
+
+    function getPoidsRestantTab($datedebut, $dateFin) {
+        // Initialiser un tableau pour stocker les poids restants sur chaque parcelle
+        $poidsRestants = array();
+    
+        // Récupérer toutes les parcelles
+        $conn = Connect();
+        $sql = "SELECT numero, surface FROM parcelle";
+        $result = mysqli_query($conn, $sql);
+    
+        // Pour chaque parcelle, calculer le poids restant à la date de fin
+        while ($row = mysqli_fetch_assoc($result)) {
+            $idParcelle = $row['numero'];
+            $surfaceParcelle = $row['surface'];
+            $poidsTotalCueilli = getPoidsTotal2datesParcelle($dateDebut, $dateFin, $idParcelle);
+            $poidsRestant = $surfaceParcelle - $poidsTotalCueilli;
+            $poidsRestants[$idParcelle] = $poidsRestant;
+        }
+    
+        // mysqli_close($conn);
+    
+        // Retourner le tableau des poids restants sur chaque parcelle
+        return $poidsRestants;
+    }
+
+    function getPoidsRestant($dateDebut, $dateFin) {
+        // Obtenir les poids restants sur chaque parcelle
+        $poidsRestants = getPoidsRestantTab($dateDebut, $dateFin);
+    
+        // Initialiser la variable pour le poids total
+        $totalPoidsRestants = 0;
+    
+        // Itérer à travers les poids restants sur chaque parcelle et les ajouter au total
+        foreach ($poidsRestants as $poidsRestant) {
+            $totalPoidsRestants += $poidsRestant;
+        }
+    
+        // Retourner le poids total restant sur toutes les parcelles
+        return $totalPoidsRestants;
+    }
+
+    function getCoutRevientGlobalParKg($dateDebut, $dateFin) {
+        // Récupérer le poids total cueilli sur toutes les parcelles entre les deux dates spécifiées
+        $poidsTotalCueilli = getPoidsTotal2dates($dateDebut, $dateFin);
+
+        // Récupérer le coût total de toutes les dépenses liées à la cueillette sur toutes les parcelles entre les deux dates spécifiées
+        $coutTotalDepenses = getCoutTotalDepenses($dateDebut, $dateFin);
+
+        // Calculer le coût de revient global par kilogramme de thé cueilli
+        if ($poidsTotalCueilli > 0) {
+            $coutRevientGlobalParKg = $coutTotalDepenses / $poidsTotalCueilli;
+        } else {
+            // Si aucun thé n'a été cueilli, le coût de revient par kilogramme est indéfini
+            $coutRevientGlobalParKg = 0;
+        }
+
+        // Retourner le coût de revient global par kilogramme
+        return $coutRevientGlobalParKg;
     }
 
 ?>
