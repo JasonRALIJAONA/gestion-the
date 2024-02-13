@@ -13,6 +13,7 @@
     <title>Parcelles</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
 </head>
+ov
 <body style="background-color:#e7e7e7;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
