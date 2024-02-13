@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formResult</title>
+    <title>formTraitement</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/accueil.css" rel="stylesheet">
 
@@ -22,7 +22,7 @@
       <a style="font-family: 'Bauhaus 93';margin-left:10px;" class="navbar-brand" href="#">DI-T</a>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../index.html">Se déconnecter</a></li>
+        <li><a href="#">Se déconnecter</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -34,9 +34,9 @@
                 <ul class="nav nav-pills nav-stacked"> 
                     <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
                     <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
-                    <li role="presentation"><a href="saisie-depenses.php">Dépenses</a></li>
-                    <li role="presentation" class="active1"><a href="#">Résultats</a></li>
-                    <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
+                    <li role="presentation"><a href="saisie-depenses.html">Dépenses</a></li>
+                    <li role="presentation"><a href="formResult.html">Résultats</a></li>
+                    <li role="presentation" class="active1"><a href="#">Paiements</a></li>
                 </ul>
             </center>
         </div>
@@ -44,8 +44,8 @@
         <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>DI-T</h1></center></div>
         <center>
             <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 300px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
-                <h2>Résultats</h2>
-                <form class="form-horizontal" action="showResult.php" method="post" style="margin-top: 50px; ">
+                <h2>Paiements</h2>
+                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Date début</label>
                         <div class="col-sm-10 col-lg-4">
@@ -60,7 +60,7 @@
                     </div>                  
                     <div class="form-group" style="
                         margin-top: 20px;">
-                        <button style="background-color: rgb(168, 243, 99);border-color:  rgb(168, 243, 99);" type="submit" class="btn btn-primary">Voir resultats</button>
+                        <button style="background-color: rgb(168, 243, 99);border-color:  rgb(168, 243, 99);" type="submit" class="btn btn-primary">Voir liste des paiements</button>
                     </div>
                     </form>
                 </div>

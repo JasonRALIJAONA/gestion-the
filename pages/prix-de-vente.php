@@ -70,6 +70,13 @@
                     <input id="" type="number" name="prixVente" placeholder="Prix de vente" class="form-control">
                     </div>
                 </div>
+                <?php
+                  if (isset($_GET['reponse'])) {
+                  ?>
+                    <p style="color: green;">Insertion reussie</p>
+                  <?php
+                  }
+                ?>
                <div class="form-group"> 
                     <button class="btn btn-primary">Valider</button>
                 </div>
