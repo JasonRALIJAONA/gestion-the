@@ -1,6 +1,5 @@
 function connexion() {
     window.addEventListener("load", function () {
-        displayThe();
         function sendData() {
           var xhr; 
           try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
@@ -44,7 +43,7 @@ function connexion() {
           }; 
 
           // Configurez la requête
-          xhr.open("POST", "../traitements/traite-cuieillete.php");
+          xhr.open("POST", "../traitements/traite-cueillete.php");
       
           // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
           xhr.send(formData);
@@ -76,7 +75,7 @@ function creeSelectCueilleurByTab(tab) {
   
     tab.forEach(element => {
       var option=document.createElement("option");
-      option.value=element['idCuilleur'];
+      option.value=element['idCueilleur'];
       option.innerHTML=element['nom'];
   
       selection.appendChild(option);
@@ -93,7 +92,11 @@ function creeSelectParcelleByTab(tab) {
       } 
       
     }
+    
+    var option0=document.createElement("option");
+    option0.innerHTML='Choisir une parcelle';
   
+    selection.appendChild(option0);
     tab.forEach(element => {
       var option=document.createElement("option");
       option.value=element['numero'];
@@ -170,4 +173,39 @@ function creeSelectParcelle()
    
    //XMLHttpRequest.send(body)
    xhr.send(null); 
+}
+
+function auto() {
+    var xhr; 
+    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP');   }
+    catch (e) 
+    {
+        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP'); }
+        catch (e2) 
+        {
+           try {  xhr = new XMLHttpRequest();  }
+           catch (e3) {  xhr = false;   }
+         }
+    }
+  
+    xhr.onreadystatechange  = function() 
+    { 
+       if(xhr.readyState  == 4){
+        if(xhr.status  == 200) {
+            var retour = JSON.parse(xhr.responseText);
+            var suggestion=productName(retour);
+            autoList(suggestion);
+        } else {
+            document.dyn="Error code " + xhr.status;
+        }
+    }
+  
+    };
+    
+  var idCategorie=document.getElementById("categorieId").value;
+  //XMLHttpRequest.open(method, url, async)
+   xhr.open("GET", "inc/listeProduitFiltre.php?idCat="+idCategorie,  true); 
+   
+   //XMLHttpRequest.send(body)
+   xhr.send();  
 }
