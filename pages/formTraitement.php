@@ -60,7 +60,7 @@
                     </div>                  
                     <div class="form-group" style="
                         margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary">Voir liste des paiements</button>
+                        <button style="background-color: rgb(168, 243, 99);border-color:  rgb(168, 243, 99);" type="submit" class="btn btn-primary">Voir liste des paiements</button>
                     </div>
                     </form>
                 </div>
