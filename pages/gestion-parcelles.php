@@ -33,7 +33,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="row">
-    <div class="col-lg-3" style="height: 1000px;background-color:white;margin-top: -20px;">
+    <div class="col-lg-3" style="height: 1100px;background-color:white;margin-top: -20px;">
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">  
             <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
@@ -46,7 +46,8 @@
             </ul>
         </center>
     </div>
-    <div class="col-lg-9" style="height: 1000px;margin-top: -20px;">
+    overflow
+    <div class="col-lg-9" style="height: 1100px;margin-top: -20px;">
     <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Gestion des parcelles</h1></center></div>
       <center>
           <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
@@ -114,7 +115,7 @@
               </div>
       </center>
       <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
-      <div style="height: 400px;overflow: scroll;">
+      <div style="height: 500px;overflow: scroll;">
         <div class="row">
               
                 <?php
@@ -122,7 +123,7 @@
                           ?>
                         <div class="col-sm-6 col-md-4">
                           <div class="thumbnail parcelles">
-                            <img src="../assets/img/fondLogin.jpg" alt="...">
+                            <img src="../assets/img/the.jpg" alt="...">
                             <div class="caption">
                               <center>
                                   <h1>#<?php echo $item['numero'];?></h1>
