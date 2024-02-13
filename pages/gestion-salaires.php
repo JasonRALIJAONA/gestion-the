@@ -87,7 +87,14 @@
                   </div>
                   <div class="form-group" style="
                       margin-top: 20px;">
-                      <button  type="submit" class="btn btn-primary">Valider</button>
+                      <?php if ($modif)
+                      {
+                        echo "<button type='submit' class='btn btn-primary'>Modifier</button>";
+                      }
+                      else {
+                        echo "<button type='submit' class='btn btn-primary'>Valider</button>";
+                      }
+                      ?>
                   </div>
                 </form>
               </div>
