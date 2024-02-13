@@ -645,46 +645,77 @@
         }
     }
 
+    function getMontantPaiement2($dateDebut, $dateFin, $idCueilleur)
+    {
+    
+        // Initialiser le montant total du paiement pour ce cueilleur
+        $montantTotal = 0;
+
+        // Boucler à travers chaque jour de cueillette entre les dates spécifiées
+        $dateActuelle = $dateDebut;
+        while ($dateActuelle <= $dateFin) {
+            // Calculer le montant du paiement pour ce jour de cueillette
+            $montantPaiement = getMontantPaiement($dateActuelle, $idCueilleur);
+
+            // Ajouter le montant du paiement au montant total pour ce cueilleur
+            $montantTotal += $montantPaiement;
+
+            // Passer au jour suivant
+            $dateActuelle = date('Y-m-d', strtotime($dateActuelle . ' +1 day'));
+        }
+
+        // Stocker le montant total du paiement pour ce cueilleur dans le tableau
+        return $montantTotal;
+
+    }
+    
+    function getPoidsAzo($dateDebut, $dateFin, $idCueilleur)
+    {
+    
+        // Initialiser le montant total du paiement pour ce cueilleur
+        $poidsTotal = 0;
+
+        // Boucler à travers chaque jour de cueillette entre les dates spécifiées
+        $dateActuelle = $dateDebut;
+        while ($dateActuelle <= $dateFin) {
+            $poids = getPoidsTotalCueilli($date, $idCueilleur);
+
+            // Ajouter le montant du paiement au montant total pour ce cueilleur
+            $poidsTotal += $poids;
+
+            // Passer au jour suivant
+            $dateActuelle = date('Y-m-d', strtotime($dateActuelle . ' +1 day'));
+        }
+
+        // Stocker le montant total du paiement pour ce cueilleur dans le tableau
+        return $poidsTotal;
+    }
+
     function listPaiement($dateDebut, $dateFin) {
         // Connexion à la base de données
         $conn = Connect();
     
-        // Initialisation d'un tableau pour stocker les paiements
-        $paiements = array();
+        // Initialisation d'un tableau pour stocker les montants de paiement par idCueilleur
+        $valiny = array();
     
         // Récupérer tous les cueilleurs
         $sql = "SELECT idCueilleur, nom FROM cueilleur";
         $result = mysqli_query($conn, $sql);
     
-        // Pour chaque cueilleur, récupérer les détails de paiement entre les dates spécifiées
+        // Pour chaque cueilleur, calculer le montant du paiement pour chaque jour de cueillette entre les dates spécifiées
         while ($row = mysqli_fetch_assoc($result)) {
-            $idCueilleur = $row['idCueilleur'];
-            $nomCueilleur = $row['nom'];
-            
-            // Calculer le poids total cueilli entre les dates spécifiées pour ce cueilleur
-            $poidsTotal = getPoidsTotalCueilli($dateDebut, $dateFin, $idCueilleur);
-    
-            // Calculer le montant du paiement pour ce cueilleur
-            $montantPaiement = getMontantPaiement($dateFin, $idCueilleur);
-    
-            // Ajouter les détails du paiement au tableau
-            $paiements[] = array(
-                'idCueilleur' => $idCueilleur,
-                'nomCueilleur' => $nomCueilleur,
-                'dateDebut' => $dateDebut,
-                'dateFin' => $dateFin,
-                'poids' => $poidsTotal,
-                'bonus' => getConfig()['bonus'],
-                'mallus' => getConfig()['mallus'],
-                'montantPaiement' => $montantPaiement
-            );
+            $valiny[] = $row;
         }
     
-        // Fermeture de la connexion à la base de données
-        mysqli_close($conn);
-    
-        // Retourner le tableau des paiements
-        return $paiements;
+        for ($i=0; $i < count($valiny); $i++) { 
+            $valiny[$i]['dateDebut'] = $dateDebut;
+            $valiny[$i]['dateFin'] = $dateFin;
+            $valiny[$i]['poids'] = getPoidsAzo($dateDebut, $dateFin, $valiny[$i]['idCueilleur']);
+            $valiny[$i]['bonus'] = getConfig()['bonus'];
+            $valiny[$i]['mallus'] = getConfig()['mallus'];
+            $valiny[$i]['montantPaiement'] = getMontantPaiement2($dateDebut, $dateFin, $valiny[$i]['idCueilleur']);
+        }
+        return $valiny;
     }
-    
+
 ?>
