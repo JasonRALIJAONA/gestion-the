@@ -68,12 +68,7 @@
                 </thead>
                 <tbody>
                   <?php for ($i=0; $i <count($resultat) ; $i++) { ?> 
-<<<<<<< Updated upstream
-                    <tr style="background-color: rgb(129, 243, 87);">
-          
-=======
                     <tr>
->>>>>>> Stashed changes
                     <td><?php echo ($resultat[$i]['dateDebut']); ?></td>
                     <td><?php echo ($resultat[$i]['dateFin']); ?></td>
                     <td><?php echo ($resultat[$i]['nom']); ?></td>
