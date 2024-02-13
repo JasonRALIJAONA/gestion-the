@@ -547,4 +547,136 @@
         $sql = "delete from prixVente where idThe=$idThe";
         mysqli_query($conn, $sql);
     }
+
+    function getCueillettesByIdCueilleur($dateDebut, $dateFin, $idCueilleur) {
+        // Connexion à la base de données
+        $conn = Connect();
+        
+        // Préparation de la requête SQL pour récupérer les cueillettes
+        $sql = "SELECT * FROM cueillette WHERE idCueilleur = ? AND dateCueillette BETWEEN ? AND ?";
+        
+        // Préparation de la requête
+        $stmt = $conn->prepare($sql);
+        
+        // Liaison des paramètres
+        $stmt->bind_param("iss", $idCueilleur, $dateDebut, $dateFin);
+        
+        // Exécution de la requête
+        $stmt->execute();
+        
+        // Récupération des résultats
+        $result = $stmt->get_result();
+        
+        // Création d'un tableau pour stocker les cueillettes
+        $cueillettes = array();
+        
+        // Parcours des résultats et ajout des cueillettes au tableau
+        while ($row = $result->fetch_assoc()) {
+            $cueillettes[] = $row;
+        }
+        
+        // Fermeture de la connexion et retour des cueillettes
+        $stmt->close();
+        $conn->close();
+        
+        return $cueillettes;
+    }
+
+    function getNbJour($dateDebut, $dateFin) {
+        // Convertir les dates en objets DateTime
+        $start_date = new DateTime($dateDebut);
+        $end_date = new DateTime($dateFin);
+        
+        // Calculer la différence entre les deux dates
+        $interval = $start_date->diff($end_date);
+        
+        // Récupérer le nombre de jours de l'intervalle
+        $nbJours = $interval->days;
+        
+        return $nbJours;
+    }
+    
+    function getPoidsTotalCueilli($date, $idCueilleur) {
+        // Connexion à la base de données
+        $conn = Connect();
+        
+        // Requête SQL pour récupérer le poids total cueilli par le cueilleur jusqu'à la date spécifiée
+        $sql = "SELECT SUM(poids) AS poids_total FROM cueillette WHERE idCueilleur = $idCueilleur AND dateCueillette = '$date'";
+        
+        // Exécution de la requête
+        $result = mysqli_query($conn, $sql);
+        
+        // Vérification s'il y a des résultats
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Récupération du poids total cueilli
+            $row = mysqli_fetch_assoc($result);
+            $poids_total = $row['poids_total'];
+        } else {
+            // Aucun poids cueilli trouvé
+            $poids_total = 0;
+        }
+        
+        // Fermeture de la connexion à la base de données
+        mysqli_close($conn);
+        
+        // Retourner le poids total cueilli
+        return $poids_total;
+    }
+    
+    function getMontantPaiement($date, $idCueilleur)
+    {
+        // $nbJours = getNbJour($dateDebut, $dateFin);
+        $min = getConfig()['minimum'];
+        $bonus = getConfig()['bonus'];
+        $mallus = getConfig()['mallus'];
+
+        $poidsTotal = getPoidsTotalCueilli($date, $idCueilleur);
+
+        $salaireParKilo = getSalaire($idCueilleur)['montant'];
+
+        if ($poids_total >= $min) {
+            $normal = $poids_total*$salaireParKilo;
+            $bonnification = ((($poids_total - $min)*$salaireParKilo)*$bonus)/100;
+            return ($normal + $bonnification);
+        }
+        else {
+            $salaireParKilo = $salaireParKilo - ($salaireParKilo*$mallus/100);
+            return $salaireParKilo*$poids_total;   
+        }
+    }
+
+    function listPaiement($dateDebut, $dateFin) {
+        // Connexion à la base de données
+        $conn = Connect();
+    
+        // Initialisation d'un tableau pour stocker les paiements
+        $paiements = array();
+    
+        // Récupérer tous les cueilleurs
+        $sql = "SELECT idCueilleur, nom FROM cueilleur";
+        $result = mysqli_query($conn, $sql);
+    
+        // Pour chaque cueilleur, calculer le paiement et l'ajouter au tableau
+        while ($row = mysqli_fetch_assoc($result)) {
+            $idCueilleur = $row['idCueilleur'];
+            $nomCueilleur = $row['nom'];
+            $montantPaiement = getMontantPaiement($dateFin, $idCueilleur);
+    
+            // Ajouter les détails du paiement au tableau
+            $paiements[] = array(
+                'nomCueilleur' => $nomCueilleur,
+                'dateCueillette' => $dateFin,
+                'montantPaiement' => $montantPaiement
+                'bonus' => getConfig()['bonus']
+                'mallus' => getConfig()['mallus']
+            );
+        }
+    
+        // Fermeture de la connexion à la base de données
+        mysqli_close($conn);
+    
+        // Retourner le tableau des paiements
+        return $paiements;
+    }
+    
 ?>
