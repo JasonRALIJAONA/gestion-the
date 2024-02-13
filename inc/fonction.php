@@ -278,4 +278,43 @@
         $sql = "INSERT INTO listeDepense (date, idDepense, montant) VALUES ('$date', $idDepense, $montant)";
         mysqli_query($conn, $sql);
     }
+
+    function getPoids($numeroParcelle) {
+        // Connexion à la base de données
+        $conn = Connect();
+
+        // Requête SQL pour calculer le poids restant sur la parcelle spécifiée
+        $sql = "SELECT 
+                    (p.surface * t.rendement) - IFNULL(SUM(c.poids), 0) AS poids_restant_kg
+                FROM 
+                    parcelle p
+                JOIN 
+                    the t ON p.idThe = t.idThe
+                LEFT JOIN 
+                    cueillette c ON p.numero = c.numeroParcelle
+                WHERE 
+                    p.numero = ?
+                GROUP BY 
+                    p.numero, p.surface, t.rendement";
+
+            // Préparation de la requête
+            $stmt = mysqli_prepare($conn, $sql);
+
+            // Liaison des paramètres
+            mysqli_stmt_bind_param($stmt, "i", $numeroParcelle);
+
+            // Exécution de la requête
+            mysqli_stmt_execute($stmt);
+
+            // Récupération du résultat
+            mysqli_stmt_bind_result($stmt, $poids_restant_kg);
+            
+            // Récupération du résultat dans un tableau associatif
+            mysqli_stmt_fetch($stmt);
+
+            // Fermeture de la requête
+            mysqli_stmt_close($stmt);
+            // Retourner le poids restant en kg
+            return $poids_restant_kg;
+        }
 ?>
