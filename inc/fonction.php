@@ -263,7 +263,6 @@
         $conn = Connect();
         $sql = "UPDATE salaire SET montant = $montant WHERE idCueilleur = $idCueilleur";
         mysqli_query($conn, $sql);
-        // mysqli_close($conn);
     }
 
     function insertCueillette($dateCueillette, $idCueilleur, $numeroParcelle, $poids)
@@ -271,8 +270,12 @@
         $conn = Connect();
         $sql = "INSERT INTO cueillette (dateCueillette, idCueilleur, numeroParcelle, poids) VALUES ('$dateCueillette', $idCueilleur, $numeroParcelle, $poids)";
         mysqli_query($conn, $sql);
-        // mysqli_close($conn);
     }
 
-
+    function saisieDepense($date, $idDepense, $montant)
+    {
+        $conn = Connect();
+        $sql = "INSERT INTO listeDepense (date, idDepense, montant) VALUES ('$date', $idDepense, $montant)";
+        mysqli_query($conn, $sql);
+    }
 ?>
