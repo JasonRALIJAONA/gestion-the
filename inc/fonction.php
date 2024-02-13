@@ -481,4 +481,24 @@
         return $coutRevientGlobalParKg;
     }
 
+    function getCoutTotalDepenses($dateDebut, $dateFin) {
+        // Connexion à la base de données
+        $conn = Connect();
+    
+        // Requête pour obtenir le coût total des dépenses dans la période spécifiée
+        $sql = "SELECT SUM(montant) AS total_depenses FROM listeDepense WHERE date BETWEEN '$dateDebut' AND '$dateFin'";
+    
+        // Exécution de la requête
+        $result = mysqli_query($conn, $sql);
+    
+        // Récupération du résultat
+        $row = mysqli_fetch_assoc($result);
+    
+        // Fermeture de la connexion à la base de données
+        mysqli_close($conn);
+    
+        // Retour du coût total des dépenses
+        return $row['total_depenses'];
+    }
+
 ?>
