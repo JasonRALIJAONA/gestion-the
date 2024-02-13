@@ -35,6 +35,7 @@
     <div class="col-lg-3" style="height: 950px;background-color:white;margin-top: -20px;">
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">
+                <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
                 <li role="presentation"><a href="gestion-the.html">Gestion thé</a></li>
                 <li role="presentation"><a href="gestion-parcelles.php">Gestion parcelles</a></li>
                 <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>

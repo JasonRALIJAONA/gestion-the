@@ -36,6 +36,7 @@
     <div class="col-lg-3" style="height: 1000px;background-color:white;margin-top: -20px;">
         <center style="margin-top:50px;">
             <ul class="nav nav-pills nav-stacked">  
+                <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
                 <li role="presentation"><a href="gestion-the.html">Gestion thé</a></li>
                 <li role="presentation" class="active"><a href="#">Gestion parcelles</a></li>
                 <li role="presentation"><a href="gestion-cueilleurs.html">Gestion cueilleurs</a></li>
@@ -120,7 +121,7 @@
                           ?>
                         <div class="col-sm-6 col-md-4">
                           <div class="thumbnail parcelles">
-                            <img src="../assets/img/fondLogin.jpg" alt="...">
+                            <img src="../assets/img/the.jpg" alt="...">
                             <div class="caption">
                               <center>
                                   <h1>#<?php echo $item['numero'];?></h1>
