@@ -600,28 +600,26 @@
         // Connexion à la base de données
         $conn = Connect();
         
-        // Requête SQL pour récupérer le poids total cueilli par le cueilleur jusqu'à la date spécifiée
+        // Requête SQL pour récupérer le poids total cueilli par le cueilleur pour une journée spécifique
         $sql = "SELECT SUM(poids) AS poids_total FROM cueillette WHERE idCueilleur = $idCueilleur AND dateCueillette = '$date'";
         
         // Exécution de la requête
         $result = mysqli_query($conn, $sql);
-        
+        $poids_total = 0;
+    
         // Vérification s'il y a des résultats
         if ($result && mysqli_num_rows($result) > 0) {
             // Récupération du poids total cueilli
             $row = mysqli_fetch_assoc($result);
             $poids_total = $row['poids_total'];
-        } else {
-            // Aucun poids cueilli trouvé
-            $poids_total = 0;
         }
         
         // Fermeture de la connexion à la base de données
-        mysqli_close($conn);
+        // mysqli_close($conn);
         
-        // Retourner le poids total cueilli
         return $poids_total;
     }
+    
     
     function getMontantPaiement($date, $idCueilleur)
     {
@@ -630,7 +628,7 @@
         $bonus = getConfig()['bonus'];
         $mallus = getConfig()['mallus'];
 
-        $poidsTotal = getPoidsTotalCueilli($date, $idCueilleur);
+        $poids_total = getPoidsTotalCueilli($date, $idCueilleur);
 
         $salaireParKilo = getSalaire($idCueilleur)['montant'];
 
