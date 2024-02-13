@@ -42,6 +42,7 @@
                     <li role="presentation" class="active1"><a href="">Dépenses</a></li>
                     <li role="presentation"><a href="formResult.html">Résultats</a></li>
                     <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
+
                 </ul>
             </center>
         </div>
