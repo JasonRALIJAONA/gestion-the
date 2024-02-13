@@ -666,8 +666,8 @@
             $paiements[] = array(
                 'nomCueilleur' => $nomCueilleur,
                 'dateCueillette' => $dateFin,
-                'montantPaiement' => $montantPaiement
-                'bonus' => getConfig()['bonus']
+                'montantPaiement' => $montantPaiement,
+                'bonus' => getConfig()['bonus'],
                 'mallus' => getConfig()['mallus']
             );
         }
