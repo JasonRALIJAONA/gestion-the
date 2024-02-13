@@ -53,3 +53,11 @@ CREATE TABLE cueillette (
 ) ENGINE=InnoDB;
 alter table cueillette add FOREIGN KEY(idCueilleur) references cueilleur(idCueilleur);
 alter table cueillette add FOREIGN KEY(numeroParcelle) references parcelle(numero);
+
+CREATE TABLE listeDepense (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    date DATE,
+    idDepense SMALLINT,
+    montant decimal(10,2)
+) ENGINE=InnoDB;
+alter table listeDepense add FOREIGN KEY(idDepense) references depense(idDepense);

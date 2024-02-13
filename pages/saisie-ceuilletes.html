@@ -6,8 +6,14 @@
     <title>Ceuilletes</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/accueil.css" rel="stylesheet">
+    <script src="../js/cuieillettes.js"></script>
 
 </head>
+<script>
+    connexion();
+    creeSelectCueilleur();
+    creeSelectParcelle();
+</script>
 <body style="background-color:#e7e7e7;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -44,17 +50,17 @@
         <center>
             <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 400px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
                 <h2>Ceuilletes</h2>
-                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; " id="formulaire">
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Date</label>
                         <div class="col-sm-10 col-lg-4">
-                        <input id="" type="date" name="date" placeholder="date" class="form-control">
+                        <input id="date" type="date" name="date" placeholder="date" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Ceuilleurs</label>
                         <div class="col-sm-10 col-lg-4">
-                            <select name="ceuilleur" class="form-control" id="">
+                            <select name="ceuilleur" class="form-control" id="selection-cueilleurs">
                                 <option value="" >Ceuilleur 1</option>
                                 <option value="" >Ceuilleur 2</option>
                             </select>
@@ -63,19 +69,19 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Parcelles</label>
                         <div class="col-sm-10 col-lg-4">
-                            <select name="parcelles" class="form-control" id="">
+                            <select name="parcelles" class="form-control" id="selection-parcelle" onchange="auto()">
                                 <option value="" >Parcelles 1</option>
                                 <option value="" >Parcelles 2</option>
                             </select>
                         </div>
                     </div>
+                    <p style="color: red;" id="restant">Poids restant</p>
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Poids</label>
                         <div class="col-sm-10 col-lg-4">
-                        <input id="" type="number" name="poids" placeholder="Poids" class="form-control">
+                        <input id="poids" type="number" name="poids" placeholder="Poids" class="form-control">
                         </div>
-                    </div>
-                    <p style="color:red">Veuillez réessayer</p>                  
+                    </div>                 
                     <div class="form-group" style="
                         margin-top: 20px;">
                         <button type="submit" class="btn btn-primary">Ceuillir</button>
