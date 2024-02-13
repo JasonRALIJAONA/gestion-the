@@ -13,6 +13,7 @@
     <title>Parcelles</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
 </head>
+ov
 <body style="background-color:#e7e7e7;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -48,7 +49,6 @@
             </ul>
         </center>
     </div>
-    overflow
     <div class="col-lg-9" style="height: 1100px;margin-top: -20px;">
     <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1>Gestion des parcelles</h1></center></div>
       <center>

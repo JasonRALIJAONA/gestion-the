@@ -1,10 +1,3 @@
-<?php
-  include_once '../inc/fonction.php';
-  $listeThe = listThe();
-  $listeParcelle = listParcelle();
-  $modif = isset($_GET['modif']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +33,7 @@
                 <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
                     <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
                     <li role="presentation"><a href="saisie-depenses.php">Dépenses</a></li>
-                    <li role="presentation"><a href="#">Résultats</a></li>
+                    <li role="presentation"><a href="formResult.html">Résultats</a></li>
                     <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
                     <li role="presentation"><a href="formResult2.php">Montant & Bénéfice</a></li>
                     <li role="presentation" class="active1"><a href="#">Prévision</a></li>
@@ -72,15 +65,11 @@
       <h3>Montant: 1459000 ar</h3>
       <div style="height: 500px;overflow: scroll;">
         <div class="row">
-              
-                <?php
-                        foreach ($listeParcelle as $item) {
-                          ?>
                         <div class="col-sm-6 col-md-4">
                           <div class="thumbnail parcelles" style="padding-left: 20px;padding-right: 20px;">
-                            <p>PARCELLE #<?php echo $item['numero'];?></p>
-                            <center><h3><?php echo getThe($item['idThe'])['nom'];?></h3></center>
-                            <p><?php echo $item['surface'];?> ha</p>
+                            <p>PARCELLE #1</p>
+                            <center><h3>Thé vert</h3></center>
+                            <p>100 ha</p>
                             <img src="../assets/img/the.jpg" alt="...">
                             <div class="caption">
                             <p>Nombre de pieds:</p>
@@ -88,9 +77,6 @@
                           </div>
                         </div>
                       </div>  
-                          <?php
-                        }
-                        ?>
           </div>
       </div>
     </div>
