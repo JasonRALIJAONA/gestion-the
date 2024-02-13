@@ -1,3 +1,8 @@
+<?php
+    include_once("../inc/fonction.php");
+    $liste=listDepense();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +49,7 @@
         <center>
             <div class="row" style="margin-bottom: 20px;margin-top:50px;width:500px ;padding-left: 40px;height: 350px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
                 <h2>Dépenses</h2>
-                <form class="form-horizontal" action="" method="post" style="margin-top: 50px; ">
+                <form class="form-horizontal" action="../traitements/traite-depense.php" method="post" style="margin-top: 50px; ">
                     <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-4">Date</label>
                         <div class="col-sm-10 col-lg-4">
@@ -55,8 +60,9 @@
                         <label class="col-sm-2 control-label col-lg-4">Dépenses</label>
                         <div class="col-sm-10 col-lg-4">
                             <select name="depense" class="form-control" id="">
-                                <option value="" >Dépense 1</option>
-                                <option value="" >Dépense 2</option>
+                                <?php for ($i=0; $i <count($liste) ; $i++) { ?>
+                                    <option value="<?php echo $liste[$i]['idDepense']; ?>"><?php echo $liste[$i]['description']; ?></option>
+                               <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -71,6 +77,9 @@
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </div>
                     </form>
+                    <?php if (isset($_GET['resultat'])) { ?>
+                        <p style="color:blue;">Depense insere</p>
+                    <?php } ?>
                 </div>
         </center>
         </div>

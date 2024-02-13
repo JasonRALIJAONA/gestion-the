@@ -179,7 +179,7 @@ function setRestant(chiffre) {
   var restant=document.getElementById("restant");
   restant.innerHTML="Poids restant: "+chiffre;
 
-  var poids=document.getElementById(poids);
+  var poids=document.getElementById("poids");
   poids.max=chiffre;
 }
 
@@ -201,8 +201,7 @@ function auto() {
        if(xhr.readyState  == 4){
         if(xhr.status  == 200) {
             var retour = JSON.parse(xhr.responseText);
-            var suggestion=productName(retour);
-            setRestant(suggestion);
+            setRestant(retour);
         } else {
             document.dyn="Error code " + xhr.status;
         }
