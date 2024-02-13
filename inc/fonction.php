@@ -628,7 +628,7 @@
         $bonus = getConfig()['bonus'];
         $mallus = getConfig()['mallus'];
 
-        $poidsTotal = getPoidsTotalCueilli($date, $idCueilleur);
+        $poids_total = getPoidsTotalCueilli($date, $idCueilleur);
 
         $salaireParKilo = getSalaire($idCueilleur)['montant'];
 
