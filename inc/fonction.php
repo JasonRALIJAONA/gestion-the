@@ -656,19 +656,27 @@
         $sql = "SELECT idCueilleur, nom FROM cueilleur";
         $result = mysqli_query($conn, $sql);
     
-        // Pour chaque cueilleur, calculer le paiement et l'ajouter au tableau
+        // Pour chaque cueilleur, récupérer les détails de paiement entre les dates spécifiées
         while ($row = mysqli_fetch_assoc($result)) {
             $idCueilleur = $row['idCueilleur'];
             $nomCueilleur = $row['nom'];
+            
+            // Calculer le poids total cueilli entre les dates spécifiées pour ce cueilleur
+            $poidsTotal = getPoidsTotalCueilli($dateDebut, $dateFin, $idCueilleur);
+    
+            // Calculer le montant du paiement pour ce cueilleur
             $montantPaiement = getMontantPaiement($dateFin, $idCueilleur);
     
             // Ajouter les détails du paiement au tableau
             $paiements[] = array(
+                'idCueilleur' => $idCueilleur,
                 'nomCueilleur' => $nomCueilleur,
-                'dateCueillette' => $dateFin,
-                'montantPaiement' => $montantPaiement,
+                'dateDebut' => $dateDebut,
+                'dateFin' => $dateFin,
+                'poids' => $poidsTotal,
                 'bonus' => getConfig()['bonus'],
-                'mallus' => getConfig()['mallus']
+                'mallus' => getConfig()['mallus'],
+                'montantPaiement' => $montantPaiement
             );
         }
     
