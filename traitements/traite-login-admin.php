@@ -7,7 +7,7 @@
     $resultat=loginAdmin($email,$mdp);
 
     if ($resultat == -1) {
-        header('Location:../pages/login-admin.php?error=Email ou mot de passe invalide');    
+        header('Location:../pages/login-temp-admin.php?error=Email ou mot de passe invalide');    
     }else{
         header('Location:../pages/gestion-the.html');
     }
