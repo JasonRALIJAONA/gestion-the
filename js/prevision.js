@@ -35,6 +35,8 @@ function connexion() {
               if(xhr.status  == 200) {
                 var retour = JSON.parse(xhr.responseText);
                 displayPrevision(retour);
+
+                displayRestant();
               } else {
                   document.dyn="Error code " + xhr.status;
               }
