@@ -100,7 +100,7 @@ function displayPrevision(tab) {
         thumbnail.appendChild(surface);
 
         var image=document.createElement("img");
-        image.source="../assets/img/the.jpg";
+        image.src="../assets/img/the.jpg";
 
         thumbnail.appendChild(image);
 
