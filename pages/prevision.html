@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévision</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/accueil.css" rel="stylesheet">
+    <script src="../js/prevision.js"></script>
+</head>
+
+<script>
+  connexion();
+</script>
+<body style="background-color:#e7e7e7;">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a style="font-family: 'Bauhaus 93';margin-left:10px;" class="navbar-brand" href="#">DI-T</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../index.html">Se déconnecter</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="row">
+<div class="col-lg-3" style="height: 1100px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;margin-top: -20px;color: white;">
+            <center style="margin-top:50px;">
+                <ul class="nav nav-pills nav-stacked">    
+                <h3 style="margin-bottom:20px;"><span class="glyphicon glyphicon-list"></span>   MENU</h3>  
+                    <li role="presentation"><a href="saisie-ceuilletes.html">Ceuilletes</a></li>
+                    <li role="presentation"><a href="saisie-depenses.php">Dépenses</a></li>
+                    <li role="presentation"><a href="formResult.html">Résultats</a></li>
+                    <li role="presentation"><a href="formTraitement.php">Paiements</a></li>
+                    <li role="presentation"><a href="formResult2.php">Montant & Bénéfice</a></li>
+                    <li role="presentation" class="active1"><a href="#">Prévision</a></li>
+                    
+                </ul>
+            </center>
+        </div>
+    <div class="col-lg-9" style="height: 1100px;margin-top: -20px;">
+    <div style="height:150px;background: url(../assets/img/fondLogin.jpg);background-repeat: no-repeat;color:white;padding-top:20px;"><center><h1></h1></center></div>
+      <center>
+          <div class="row" style="margin-bottom: 20px;margin-top:20px;width:500px ;padding-left: 40px;height: 250px;border-radius: 10px;background-color: white;box-shadow:0 5px 10px rgba(0, 0, 0, 0.05);padding-right: 30px;">
+              <h2>Insertion date</h2>
+
+              <form class="form-horizontal" action="../traitements/.php" method="post" style="margin-top: 50px; " id="formulaire">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label col-lg-4">Date</label>
+                      <div class="col-sm-10 col-lg-5">
+                       <input type="date" name="date" placeholder="date" class="form-control">
+                      </div>
+                  </div>   
+                  <div class="form-group">
+                  <button style="background-color: rgb(168, 243, 99);border-color:  rgb(168, 243, 99);" type="submit" class="btn btn-primary">Confirmer</button>
+                  </div>
+                </form>
+          </div>
+      </center>
+      <center><div style="width: 80px;height: 5px;background: #337ab7;border-radius: 7px;margin-bottom: 50px;"></div></center>
+      <h3 id="restant">Poids total thé restant: </h3>
+      <h3>Montant: 1459000 ar</h3>
+      <div style="height: 500px;overflow: scroll;" id="resultat">
+        <div class="row" id="contient">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="thumbnail parcelles" style="padding-left: 20px;padding-right: 20px;">
+                            <p>PARCELLE #1</p>
+                            <center><h3>Thé vert</h3></center>
+                            <p>100 ha</p>
+                            <img src="../assets/img/the.jpg" alt="...">
+                            <div class="caption">
+                            <p>Nombre de pieds:</p>
+                            <p>Poids thé restant:</p>   
+                          </div>
+                        </div>
+                      </div>  
+          </div>
+      </div>
+    </div>
+</div>
+<div class="footer" style="background-color:white;height:200px;">
+        <center style="margin-top: 0px;"><div >Copyright © Your Website 2024</div></center>
+        <div class="col-lg-4"><h1>Rakotoarimanana Nathan | ETU002485</h1></div>
+        <div class="col-lg-4"><h1>Ralijaona Andriniaina Jason | ETU002529</h1></div>
+        <div class="col-lg-4"><h1>Andriambelomisandratra Onitsoa Elisa | ETU002382</h1></div>
+        
+    </div>  
+
+</body>
+</html>
